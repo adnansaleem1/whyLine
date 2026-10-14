@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+# WhyLine on Azure Container Apps, using your existing Microsoft Foundry project. See docs/deploy-azure.md.
+name: whyline
+metadata:
+  template: whyline@1.0.0
+services:
+  web:
+    project: ./src/WhyLine.Web
+    language: dotnet
+    host: containerapp
+    docker:
+      path: ../../Dockerfile
+      context: ../..
+      remoteBuild: true   # built in Azure Container Registry, so Docker is not needed locally

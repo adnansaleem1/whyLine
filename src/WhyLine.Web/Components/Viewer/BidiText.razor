@@ -1,0 +1,42 @@
+@* Renders text so Latin names and numbers keep left-to-right order inside Urdu or Arabic sentences. *@
+@using System.Text.RegularExpressions
+
+@if (!Rtl)
+{
+    @Text
+}
+else
+{
+    @foreach (var (segment, ltr) in Split(Text))
+    {
+        if (ltr)
+        {
+            <bdi class="ltr-run" dir="ltr">@segment</bdi>
+        }
+        else
+        {
+            @segment
+        }
+    }
+}
+
+@code {
+    [Parameter] public string Text { get; set; } = "";
+    [Parameter] public bool Rtl { get; set; }
+
+    // A run of Latin letters, digits and the punctuation that joins them ("Elias Brandt", "0.38 xG", "1-0", "45%").
+    private static readonly Regex LtrRun = new(@"[A-Za-z0-9][A-Za-z0-9.,'’%/:\- ]*[A-Za-z0-9%]|[A-Za-z0-9]", RegexOptions.Compiled);
+
+    private static IEnumerable<(string Segment, bool Ltr)> Split(string text)
+    {
+        var last = 0;
+        foreach (Match m in LtrRun.Matches(text))
+        {
+            if (m.Index > last) yield return (text[last..m.Index], false);
+            yield return (m.Value, true);
+            last = m.Index + m.Length;
+        }
+
+        if (last < text.Length) yield return (text[last..], false);
+    }
+}

@@ -1,0 +1,54 @@
+@* Live view of the newsroom: who is doing what, and what the Verifier rejected. *@
+
+<section class="trace" aria-label="Agent trace">
+    <header>
+        <h2>Agent newsroom</h2>
+        <span class="mode">@(Mode == "Foundry" ? "Microsoft Foundry agents" : "Template agents (offline)"), @(Orchestration == "Workflow" ? "Agent Framework workflow" : "in-process runner")</span>
+    </header>
+    <ol>
+        @if (Traces.Count == 0)
+        {
+            <li class="empty">Waiting for the first moment. The Analyst, Director, Narrators and Verifier will appear here as they work.</li>
+        }
+        @foreach (var t in Traces)
+        {
+            <li class="status-@t.Status.ToString().ToLowerInvariant()">
+                <span class="when">@(((int)(t.MatchSeconds / 60)) + 1)'</span>
+                <span class="agent agent-@AgentClass(t.Agent)" title="@Describe(t.Agent)">@t.Agent</span>
+                <span class="status">@StatusText(t.Status)</span>
+                <span class="detail">@t.Detail</span>
+                @if (t.DurationMs is { } ms)
+                {
+                    <span class="ms">@ms ms</span>
+                }
+            </li>
+        }
+    </ol>
+</section>
+
+@code {
+    [Parameter] public IReadOnlyList<AgentTrace> Traces { get; set; } = [];
+    [Parameter] public string Mode { get; set; } = "Template";
+    [Parameter] public string Orchestration { get; set; } = "In-process";
+
+    private static string AgentClass(string agent) => agent.Split('·')[0].ToLowerInvariant();
+
+    private static string Describe(string agent)
+    {
+        var key = agent.Split('·')[0];
+        var def = AgentCatalog.All.FirstOrDefault(a => a.DisplayName == key);
+        return def is null ? agent : $"{def.DisplayName}: {def.Description}";
+    }
+
+    private static string StatusText(TraceStatus s) => s switch
+    {
+        TraceStatus.Working => "working",
+        TraceStatus.Approved => "approved",
+        TraceStatus.Rejected => "rejected",
+        TraceStatus.Retry => "retrying",
+        TraceStatus.Published => "published",
+        TraceStatus.Fallback => "fallback",
+        TraceStatus.Error => "error",
+        _ => "info"
+    };
+}

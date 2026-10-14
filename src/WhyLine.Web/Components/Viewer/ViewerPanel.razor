@@ -1,0 +1,345 @@
+@implements IDisposable
+@inject LiveMatch Live
+@inject ViewerRegistry Viewers
+@inject INewsroom Newsroom
+@inject IJSRuntime JS
+
+<section class="viewer" style="--team-accent: @AccentColor" aria-label="@Name">
+    <header class="viewer-head">
+        <div class="viewer-name">
+            <span class="viewer-dot"></span>
+            <h2>@Name</h2>
+            <span class="viewer-sub">@Describe()</span>
+        </div>
+        <div class="viewer-clock" title="Your stream is @Delay seconds of match time behind live">
+            <span class="clock">@ClockText(_playback)</span>
+            @if (Delay > 0)
+            {
+                <span class="behind">@Delay s behind live</span>
+            }
+        </div>
+    </header>
+
+    <div class="controls">
+        <label>
+            <span>Mode</span>
+            <select value="@_persona" @onchange="e => SetPersona(e.Value?.ToString())">
+                <option value="Casual">Casual fan</option>
+                <option value="Analyst">Analyst</option>
+                <option value="PlayerFocus">Player focus</option>
+                <option value="AudioDescription">Audio description</option>
+            </select>
+        </label>
+        <label>
+            <span>Language</span>
+            <select value="@_language" @onchange="SetLanguage">
+                @foreach (var (langCode, langName) in Languages.Supported)
+                {
+                    <option value="@langCode">@langName</option>
+                }
+            </select>
+        </label>
+        <label>
+            <span>Club</span>
+            <select value="@(_favourite?.ToString() ?? "")" @onchange="e => SetFavourite(e.Value?.ToString())">
+                <option value="">No favourite</option>
+                <option value="Home">@Live.Metadata.Home.Name</option>
+                <option value="Away">@Live.Metadata.Away.Name</option>
+            </select>
+        </label>
+        <label>
+            <span>Player</span>
+            <select value="@(_focus?.ToString() ?? "")" @onchange="e => SetFocus(e.Value?.ToString())">
+                <option value="">No focus player</option>
+                @foreach (var p in Live.Metadata.Players.OrderBy(p => p.Team).ThenBy(p => p.Number))
+                {
+                    <option value="@p.Id">@p.Number @p.Name (@Live.Metadata.TeamOf(p.Team).ShortName)</option>
+                }
+            </select>
+        </label>
+        <label class="delay">
+            <span>Stream delay: @Delay s</span>
+            <input type="range" min="0" max="90" step="5" value="@Delay" @oninput="SetDelay" />
+        </label>
+    </div>
+
+    <div class="stage">
+        <PitchView Meta="Live.Metadata" Frame="_frame" FocusPlayerId="_focus" Badges="_badges" Highlight="_highlight" />
+
+        @if (_held > 0)
+        {
+            <div class="spoiler-shield" role="status">
+                Holding @_held @(_held == 1 ? "insight" : "insights") until your stream catches up
+            </div>
+        }
+
+        @if (_card is not null)
+        {
+            <article class="lower-third @(_card.Type == CueType.Recap ? "recap" : "")" dir="@(Languages.IsRightToLeft(_card.Language) ? "rtl" : "ltr")" lang="@_card.Language">
+                <div class="lt-bar" style="background:@TeamColor(_card.Team)"></div>
+                <div class="lt-body">
+                    <h3><BidiText Text="@_card.Title" Rtl="@Languages.IsRightToLeft(_card.Language)" /></h3>
+                    <p>
+                        @foreach (var c in _card.Citations)
+                        {
+                            <button type="button" class="cite" title="Show the events behind this sentence" @onclick="() => ShowEvidence(c.EventIds)"><BidiText Text="@c.Text" Rtl="@Languages.IsRightToLeft(_card.Language)" /></button>
+                        }
+                    </p>
+                    <footer>
+                        <span class="verified">Verified</span>
+                        <span>@SourceLabel(_card)</span>
+                        @if (_card.Type == CueType.Recap)
+                        {
+                            <button type="button" class="link-btn" @onclick="CloseRecap">Close</button>
+                        }
+                    </footer>
+                </div>
+            </article>
+        }
+    </div>
+
+    <div class="viewer-actions">
+        <button type="button" class="primary" @onclick="CatchMeUp" disabled="@_catchingUp">
+            @(_catchingUp ? "Writing your recap…" : "Catch me up")
+        </button>
+        <button type="button" class="@(_speak ? "toggle on" : "toggle")" aria-pressed="@_speak" @onclick="ToggleSpeak">
+            @(_speak ? "Speaking insights" : "Speak insights")
+        </button>
+        @if (_profileChangedAt is not null)
+        {
+            <span class="hint">New settings apply from the next moment.</span>
+        }
+    </div>
+
+    <ol class="feed" aria-label="Insights for @Name">
+        @if (_feed.Count == 0)
+        {
+            <li class="empty">Insights appear here as the match unfolds. Click any sentence to see the events behind it.</li>
+        }
+        @foreach (var cue in _feed)
+        {
+            <li class="feed-item" dir="@(Languages.IsRightToLeft(cue.Language) ? "rtl" : "ltr")" lang="@cue.Language">
+                <span class="minute">@(((int)(cue.MatchSeconds / 60)) + 1)'</span>
+                <div>
+                    <strong><BidiText Text="@cue.Title" Rtl="@Languages.IsRightToLeft(cue.Language)" /></strong>
+                    <p>
+                        @foreach (var c in cue.Citations)
+                        {
+                            <button type="button" class="cite" @onclick="() => ShowEvidence(c.EventIds)"><BidiText Text="@c.Text" Rtl="@Languages.IsRightToLeft(cue.Language)" /></button>
+                        }
+                    </p>
+                </div>
+            </li>
+        }
+    </ol>
+</section>
+
+@code {
+    [Parameter, EditorRequired] public string Name { get; set; } = "";
+    [Parameter] public Persona InitialPersona { get; set; } = Persona.Casual;
+    [Parameter] public string InitialLanguage { get; set; } = "en";
+    [Parameter] public TeamSide? InitialFavourite { get; set; }
+    [Parameter] public int? InitialFocus { get; set; }
+    [Parameter] public int InitialDelay { get; set; }
+
+    private readonly string _viewerId = Guid.NewGuid().ToString("N");
+    private Timer? _timer;
+    private Persona _persona;
+    private string _language = "en";
+    private TeamSide? _favourite;
+    private int? _focus;
+    private int Delay { get; set; }
+
+    private int _generation;
+    private double _playback;
+    private TrackingFrame? _frame;
+    private IReadOnlyList<OverlayCue> _badges = [];
+    private IReadOnlyList<OverlayCue> _feed = [];
+    private OverlayCue? _card;
+    private OverlayCue? _catchUp;
+    private string? _dismissed;
+    private int _held;
+    private IReadOnlyList<MatchEvent> _highlight = [];
+    private DateTime _highlightUntil;
+    private bool _speak;
+    private string? _spokenId;
+    private bool _catchingUp;
+    private DateTime? _profileChangedAt;
+
+    private ViewerProfile Profile => new(_persona, _language, _favourite, _focus);
+
+    protected override void OnInitialized()
+    {
+        _persona = InitialPersona;
+        _language = InitialLanguage;
+        _favourite = InitialFavourite;
+        _focus = InitialFocus;
+        Delay = InitialDelay;
+        _generation = Live.Generation;
+        Viewers.Upsert(_viewerId, Profile);
+        Refresh();
+        _timer = new Timer(_ => InvokeAsync(async () =>
+        {
+            Refresh();
+            await MaybeSpeak();
+            StateHasChanged();
+        }), null, 100, 100);
+    }
+
+    private void Refresh()
+    {
+        if (_generation != Live.Generation)
+        {
+            _generation = Live.Generation;
+            _catchUp = null;
+            _highlight = [];
+            _spokenId = null;
+        }
+
+        var live = Live.Clock;
+        _playback = Math.Max(0, live - Delay);
+        _frame = Live.FrameAt(_playback);
+
+        var cues = Live.CuesFor(Profile.Key);
+        _badges = cues.Where(c => c.Source == "fast-path" && c.MatchSeconds <= _playback && _playback < c.MatchSeconds + c.DurationSeconds && ShowBadge(c))
+            .TakeLast(4).ToArray();
+
+        var mine = cues.Where(c => c.Source == "agents" && c.ProfileKey == Profile.Key).ToArray();
+        _held = mine.Count(c => c.MatchSeconds > _playback);
+        var visible = mine.Where(c => c.MatchSeconds <= _playback).ToArray();
+        _feed = visible.Reverse().Take(30).ToArray();
+
+        var current = visible.LastOrDefault(c => _playback < c.MatchSeconds + c.DurationSeconds && c.Id != _dismissed);
+        _card = _catchUp is not null && _catchUp.Id != _dismissed ? _catchUp : current;
+
+        if (_highlight.Count > 0 && DateTime.UtcNow > _highlightUntil) _highlight = [];
+        if (_profileChangedAt is { } at && DateTime.UtcNow - at > TimeSpan.FromSeconds(6)) _profileChangedAt = null;
+    }
+
+    private bool ShowBadge(OverlayCue c) => c.Type switch
+    {
+        CueType.DistanceBadge => c.PlayerId == _focus || (_favourite is not null && c.Team == _favourite),
+        _ => true
+    };
+
+    private void ShowEvidence(IReadOnlyList<string> eventIds)
+    {
+        _highlight = eventIds.Select(Live.EventById).OfType<MatchEvent>().Where(e => e.MatchSeconds <= _playback + 0.5).ToArray();
+        _highlightUntil = DateTime.UtcNow.AddSeconds(10);
+    }
+
+    private async Task CatchMeUp()
+    {
+        _catchingUp = true;
+        try
+        {
+            var t = _playback;
+            var request = new RecapRequest(RecapKind.CatchMeUp, Profile, Live.Metadata, Live.SnapshotAt(t), Live.MomentsUpTo(t));
+            _catchUp = await Newsroom.BuildRecapAsync(request, null, CancellationToken.None) with { MatchSeconds = t };
+            _dismissed = null;
+            _spokenId = null;
+        }
+        finally
+        {
+            _catchingUp = false;
+        }
+    }
+
+    private async Task MaybeSpeak()
+    {
+        if (!_speak || _card is null || _card.Id == _spokenId) return;
+        _spokenId = _card.Id;
+        try
+        {
+            await JS.InvokeAsync<bool>("whyline.speak", $"{_card.Title}. {_card.Body}", _card.Language);
+        }
+        catch (JSDisconnectedException)
+        {
+        }
+    }
+
+    private async Task ToggleSpeak()
+    {
+        _speak = !_speak;
+        _spokenId = _card?.Id;
+        if (!_speak) await JS.InvokeVoidAsync("whyline.stop");
+    }
+
+    private void SetPersona(string? value)
+    {
+        if (Enum.TryParse<Persona>(value, out var p)) _persona = p;
+        if (_persona == Persona.PlayerFocus && _focus is null)
+            _focus = Live.Metadata.Players.First(x => x.Team == (_favourite ?? TeamSide.Away) && x.Position == "ST").Id;
+        if (_persona == Persona.AudioDescription) _speak = true;
+        Register();
+    }
+
+    private void SetLanguage(ChangeEventArgs e)
+    {
+        _language = e.Value?.ToString() ?? "en";
+        Register();
+    }
+
+    private void SetDelay(ChangeEventArgs e) => Delay = int.TryParse(e.Value?.ToString(), out var d) ? d : 0;
+
+    private void CloseRecap()
+    {
+        _dismissed = _card?.Id;
+        _catchUp = null;
+    }
+
+    private void SetFavourite(string? value)
+    {
+        _favourite = Enum.TryParse<TeamSide>(value, out var t) ? t : null;
+        Register();
+    }
+
+    private void SetFocus(string? value)
+    {
+        _focus = int.TryParse(value, out var id) ? id : null;
+        Register();
+    }
+
+    private void Register()
+    {
+        Viewers.Upsert(_viewerId, Profile);
+        _profileChangedAt = DateTime.UtcNow;
+    }
+
+    private string Describe()
+    {
+        var parts = new List<string>
+        {
+            _persona switch
+            {
+                Persona.PlayerFocus => "Player focus",
+                Persona.AudioDescription => "Audio description",
+                _ => _persona.ToString()
+            },
+            Languages.Supported.GetValueOrDefault(_language, _language)
+        };
+        if (_favourite is { } fav) parts.Add($"{Live.Metadata.TeamOf(fav).ShortName} fan");
+        if (Live.Metadata.PlayerById(_focus) is { } p) parts.Add($"following {p.ShortName}");
+        return string.Join(", ", parts);
+    }
+
+    private string AccentColor => _favourite is { } fav ? Live.Metadata.TeamOf(fav).PrimaryColor : "var(--why)";
+
+    private string TeamColor(TeamSide? side) => side is { } s ? Live.Metadata.TeamOf(s).PrimaryColor : "var(--why)";
+
+    private static string SourceLabel(OverlayCue c) =>
+        c.Source == "agents" ? $"Written by the agent newsroom in {c.GenerationMs:0} ms" : "Computed from tracking data";
+
+    private static string ClockText(double seconds)
+    {
+        var m = (int)(seconds / 60);
+        var s = (int)(seconds % 60);
+        return $"{m:00}:{s:00}";
+    }
+
+    public void Dispose()
+    {
+        _timer?.Dispose();
+        Viewers.Remove(_viewerId);
+    }
+}

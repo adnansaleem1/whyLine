@@ -1,0 +1,13 @@
+**/bin
+**/obj
+**/.vs
+tests/
+tools/
+docs/
+eval/
+logs/
+.azure/
+# Secrets must never reach the image: the cloud app signs in with its managed identity instead.
+**/appsettings.Local.json
+**/secrets.json
+**/*.user

@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>WhyLine.Agents.Foundry</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WhyLine.Agents\WhyLine.Agents.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Microsoft Agent Framework on Microsoft Foundry -->
+    <PackageReference Include="Microsoft.Agents.AI.Foundry" Version="1.5.0" />
+    <PackageReference Include="Azure.Identity" Version="1.*" />
+  </ItemGroup>
+</Project>

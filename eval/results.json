@@ -1,0 +1,2582 @@
+[
+  {
+    "Scenario": "comeback",
+    "Minute": 15,
+    "Moment": "Goal",
+    "Viewer": "Analyst-en",
+    "Language": "en",
+    "Title": "Juric sparks Saltmere\u0027s opener",
+    "Body": "Florin Juric won it back with an interception in the middle third and Saltmere Athletic scored 8 s later. The finish came from a 0.42 xG chance, 19 m out, and Saltmere lead 0-1 at 15.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response fully addresses the prompt with relevant tactical context and significance, though it is not especially expansive."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, complete, and well grounded in the provided match facts, with no unsupported information."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is clear, logically sequenced, and relevant, with tactical context and match significance presented coherently."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Well-written and coherent with minor awkward shorthand; overall fluent and readable."
+      }
+    ]
+  },
+  {
+    "Scenario": "comeback",
+    "Minute": 15,
+    "Moment": "Goal",
+    "Viewer": "Casual-en-Home",
+    "Language": "en",
+    "Title": "Saltmere strike first",
+    "Body": "Florin Juric has put Saltmere Athletic ahead, and Ironvale Rovers are now chasing the game. At 0-1, Ironvale need to respond quickly to stop Saltmere taking control.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, relevant, and directly addresses what happened and why it matters, with only minor omitted detail."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is fluent, coherent, and well-structured, with only minor headline-style informality."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The card is clear, concise, and easy to follow, with a logical explanation of what happened and its significance for the match."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response directly addresses the prompt with a clear, short card explaining what happened and why it matters."
+      }
+    ]
+  },
+  {
+    "Scenario": "comeback",
+    "Minute": 15,
+    "Moment": "Goal",
+    "Viewer": "Casual-ur-Away",
+    "Language": "ur",
+    "Title": "Florin Juric \u0646\u06D2 Saltmere Athletic \u06A9\u0648 0-1 \u06A9\u06CC \u0628\u0631\u062A\u0631\u06CC \u062F\u0644\u0627 \u062F\u06CC",
+    "Body": "Florin Juric \u0646\u06D2 Saltmere Athletic \u06A9\u0648 0-1 \u0633\u06D2 \u0622\u06AF\u06D2 \u06A9\u0631 \u062F\u06CC\u0627 \u06C1\u06D2\u06D4 \u0627\u0633 \u06A9\u06D2 \u0633\u0627\u062A\u06BE \u0622\u067E \u06A9\u06CC \u0679\u06CC\u0645 \u06A9\u0648 \u0628\u0631\u062A\u0631\u06CC \u0645\u0644 \u06AF\u0626\u06CC \u06C1\u06D2\u060C \u0627\u0648\u0631 Iverness Rovers \u06A9\u0648 \u0627\u0628 \u062C\u0644\u062F \u062C\u0648\u0627\u0628 \u062F\u06CC\u0646\u0627 \u06C1\u0648\u06AF\u0627\u06D4",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Well-written and fluent overall, with minor limitations in variety and style."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is mostly coherent and easy to follow, but repetition and the wrong team name prevent it from being highly coherent."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 3,
+        "Failed": true,
+        "Reason": "Mostly answers the query, but includes an incorrect team name and unsupported phrasing, so it is not fully grounded."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 2,
+        "Failed": true,
+        "Reason": "The response is relevant in format and intent, but includes incorrect/unsupported match details, especially the wrong team name."
+      }
+    ]
+  },
+  {
+    "Scenario": "comeback",
+    "Minute": 38,
+    "Moment": "Goal",
+    "Viewer": "Analyst-en",
+    "Language": "en",
+    "Title": "Saltmere strike fast after regain",
+    "Body": "Xavi Kearney has made it 0-2 to Saltmere Athletic at 38\u0027. Goran Teodor won it back with a tackle in their own third, and the 1-pass move finished 11 s later. The chance was worth 0.33 xG, and the shot came from 19 m at 85 km/h.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is fully grounded: it directly answers the prompt with accurate, complete, context-supported details and no unsupported claims."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is accurate, concise, and tactically relevant, with useful detail, but only indirectly explains why the goal matters."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is clear and well-structured, with minor awkwardness in the headline but strong overall readability."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is clear, logically ordered, and easy to follow, with tactical details relevant to the viewer."
+      }
+    ]
+  },
+  {
+    "Scenario": "comeback",
+    "Minute": 38,
+    "Moment": "Goal",
+    "Viewer": "Casual-en-Home",
+    "Language": "en",
+    "Title": "Saltmere extend their lead",
+    "Body": "Saltmere Athletic have struck again to make it 0-2. For Ironvale Rovers, that means they need a fast reply now or Saltmere can manage the game with the upper hand.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Clear, coherent, and grammatically strong with appropriate vocabulary, but not highly sophisticated or stylistically exceptional."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 3,
+        "Failed": true,
+        "Reason": "The response is relevant and useful, but somewhat incomplete because it lacks details about what actually happened in the goal."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is accurate and relevant but incomplete because it does not include key details about who scored or how the goal happened."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is clear, orderly, and easy to follow, with logical connections between what happened and why it matters."
+      }
+    ]
+  },
+  {
+    "Scenario": "comeback",
+    "Minute": 38,
+    "Moment": "Goal",
+    "Viewer": "Casual-ur-Away",
+    "Language": "ur",
+    "Title": "Saltmere \u0646\u06D2 0-2 \u06A9\u06CC \u0628\u0631\u062A\u0631\u06CC \u0628\u0646\u0627 \u0644\u06CC",
+    "Body": "Xavi Kearney \u0646\u06D2 Saltmere Athletic \u06A9\u0648 0-2 \u06A9\u06CC \u0628\u0631\u062A\u0631\u06CC \u062F\u0644\u0627 \u062F\u06CC \u06C1\u06D2\u06D4 \u0627\u0633 \u0633\u06D2 \u0622\u067E \u06A9\u06CC \u0679\u06CC\u0645 \u06A9\u0648 \u0645\u0636\u0628\u0648\u0637 cushion \u0645\u0644 \u06AF\u06CC\u0627 \u06C1\u06D2 \u0627\u0648\u0631 \u062F\u0648\u0633\u0631\u06CC \u0637\u0631\u0641 \u062F\u0628\u0627\u0624 \u0628\u0691\u06BE \u06AF\u06CC\u0627 \u06C1\u06D2 \u06A9\u06C1 \u0648\u06C1 game \u0645\u06CC\u06BA \u0648\u0627\u067E\u0633 \u0622\u0626\u06D2\u06D4",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is coherent and easy to follow, with a clear explanation of what happened and why it matters, though it is not exceptionally polished."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is accurate and relevant, but not fully complete because it leaves out notable details from the context that could explain what happened more fully."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is fluent and coherent with only minor awkwardness from mixed vocabulary."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response directly answers what happened and why it matters, with only minor style/wording issues."
+      }
+    ]
+  },
+  {
+    "Scenario": "comeback",
+    "Minute": 90,
+    "Moment": "Goal",
+    "Viewer": "Analyst-en",
+    "Language": "en",
+    "Title": "Abara finishes rapid Ironvale move",
+    "Body": "Noah Abara has put Ironvale Rovers 3-2 up at 90 after a quick regain in the middle third. Leandro Varela won possession with a tackle, and the move took just 1 pass and 7 s to finish. Abara scored from 18 m with a 0.31 xG chance as Ironvale now lead 3-2.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, relevant, and complete for the requested on-screen tactical card, with no unsupported information."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 3,
+        "Failed": true,
+        "Reason": "The response is coherent and readable with minor awkwardness, showing competent control of language but limited stylistic range."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is clear, well-structured, and relevant, with strong logical flow from scorer to buildup to match significance."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response fully addresses the prompt with accurate, tactically relevant details and explains why the goal matters: Ironvale now lead 3-2 late in the match."
+      }
+    ]
+  },
+  {
+    "Scenario": "comeback",
+    "Minute": 90,
+    "Moment": "Goal",
+    "Viewer": "Casual-en-Home",
+    "Language": "en",
+    "Title": "Abara puts Ironvale in front",
+    "Body": "Noah Abara has scored for Ironvale Rovers to make it 3-2. That gives your team the lead at 90, so they now have to see out the game under pressure.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Clear, coherent, and grammatically strong, with only a minor awkward phrase."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is coherent, logically structured, and clearly explains both the event and its significance, with only minor wording awkwardness."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, relevant, and explains both what happened and why it matters, with only a small wording issue."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, concise, and fully addresses both what happened and why it matters, with useful context for a casual fan."
+      }
+    ]
+  },
+  {
+    "Scenario": "comeback",
+    "Minute": 90,
+    "Moment": "Goal",
+    "Viewer": "Casual-ur-Away",
+    "Language": "ur",
+    "Title": "Ironvale \u0646\u06D2 \u0622\u062E\u0631\u06CC \u0644\u0645\u062D\u0627\u062A \u0645\u06CC\u06BA \u0648\u0627\u0631 \u06A9\u0631 \u062F\u06CC\u0627",
+    "Body": "Noah Abara \u0646\u06D2 90\u0648\u06CC\u06BA \u0645\u0646\u0679 \u0645\u06CC\u06BA Ironvale Rovers \u06A9\u0648 3-2 \u06A9\u06CC \u0628\u0631\u062A\u0631\u06CC \u062F\u0644\u0627 \u062F\u06CC \u06C1\u06D2\u06D4 \u0627\u0628 Saltmere Athletic \u06A9\u06D2 \u0644\u06CC\u06D2 \u06A9\u06BE\u06CC\u0644 \u0645\u06CC\u06BA \u0648\u0627\u067E\u0633 \u0622\u0646\u0627 \u0628\u06C1\u062A \u0645\u0634\u06A9\u0644 \u06C1\u0648 \u06AF\u06CC\u0627 \u06C1\u06D2\u060C \u06A9\u06CC\u0648\u0646\u06A9\u06C1 \u0648\u0642\u062A \u0628\u06C1\u062A \u06A9\u0645 \u0631\u06C1 \u06AF\u06CC\u0627 \u06C1\u06D2\u06D4",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, relevant, in Urdu, and directly explains what happened and why it matters, with no unsupported claims."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is coherent, relevant, and logically structured, with clear links between the goal event and its match significance."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Well-written and fluent Urdu with clear meaning, good grammar, and smooth flow; not highly elaborate enough for exceptional fluency."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response fully addresses what happened and why it matters, with accurate, relevant, and concise information."
+      }
+    ]
+  },
+  {
+    "Scenario": "comeback",
+    "Minute": 91,
+    "Moment": "FullTime",
+    "Viewer": "Analyst-en",
+    "Language": "en",
+    "Title": "Full-time recap: Ironvale Rovers 3-2 Saltmere Athletic",
+    "Body": "15\u0027: Florin Juric scores for Saltmere Athletic. 38\u0027: Xavi Kearney scores for Saltmere Athletic. 59\u0027: Caio Okonjo scores for Ironvale Rovers. 74\u0027: Dario Halloran scores for Ironvale Rovers. 90\u0027: Noah Abara scores for Ironvale Rovers. Possession 66% to 34%, shots 24 to 5, xG 3.65 to 1.49. Right now the game is chaotic, with the ball changing hands constantly.",
+    "VerifierRejections": 0,
+    "Fallback": true,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 3,
+        "Failed": true,
+        "Reason": "The response is understandable and logically ordered, but it lacks smooth tactical analysis and has a slight temporal inconsistency."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Clear, well-structured, and readable with good grammar, though not especially sophisticated and with a minor coherence issue."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 3,
+        "Failed": true,
+        "Reason": "The response is relevant and mostly accurate as a match summary, but it is incomplete because it lacks meaningful tactical analysis and includes an odd live-match phrasing."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is accurate and grounded in the context, but incomplete because it lacks the requested tactical \u201Cwhy it went that way\u201D analysis."
+      }
+    ]
+  },
+  {
+    "Scenario": "comeback",
+    "Minute": 91,
+    "Moment": "FullTime",
+    "Viewer": "Casual-en-Home",
+    "Language": "en",
+    "Title": "Rovers Steal It Late",
+    "Body": "Ironvale Rovers win 3-2, with Noah Abara\u2019s late strike the turning point after a wild comeback. Saltmere Athletic took control through Florin Juric, then Xavi Kearney made it feel like Rovers were in real trouble. Caio Okonjo dragged Ironvale back into it before Dario Halloran levelled, though Halloran also put a huge chance wide near the end. Then Abara smashed in the winner for Ironvale, so your club end with the upper hand after looking beaten.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is relevant, accurate-sounding, and mostly complete as a short recap, but it could better explain why the match unfolded that way."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The recap is coherent, logically ordered, and easy to follow, with clear connections between key match events and the final outcome."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is clear, fluent, and engaging, with strong grammar and logical flow, but it does not reach the sophistication required for the highest level."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Mostly accurate and relevant, but incomplete on the tactical/statistical \u201Cwhy\u201D behind the result."
+      }
+    ]
+  },
+  {
+    "Scenario": "comeback",
+    "Minute": 91,
+    "Moment": "FullTime",
+    "Viewer": "Casual-ur-Away",
+    "Language": "ur",
+    "Title": "Saltmere \u0633\u06D2 \u062C\u06CC\u062A \u067E\u06BE\u0633\u0644 \u06AF\u0626\u06CC",
+    "Body": "Ironvale Rovers 3-2 Saltmere Athletic: \u0645\u0648\u0691 \u062A\u0628 \u0622\u06CC\u0627 \u062C\u0628 Florin Juric \u06A9\u0627 \u0628\u0691\u0627 \u0645\u0648\u0642\u0639 \u0628\u0686 \u06AF\u06CC\u0627 \u0627\u0648\u0631 \u067E\u06BE\u0631 Noah Abara \u0646\u06D2 \u0622\u062E\u0631 \u0645\u06CC\u06BA \u0645\u06CC\u0686 \u0686\u06BE\u06CC\u0646 \u0644\u06CC\u0627\u06D4 Saltmere \u0646\u06D2 Florin Juric \u06A9\u06CC \u06AF\u06CC\u0646\u062F \u0686\u06BE\u06CC\u0646 \u06A9\u0631 \u0644\u06AF\u0627\u0626\u06CC \u06AF\u0626\u06CC \u0636\u0631\u0628 \u0633\u06D2 \u0628\u0631\u062A\u0631\u06CC \u0644\u06CC\u060C \u067E\u06BE\u0631 Xavi Kearney \u0646\u06D2 Goran Teodor \u06A9\u06D2 \u0679\u06CC\u06A9\u0644 \u06A9\u06D2 \u0628\u0639\u062F \u0641\u0627\u0626\u062F\u06C1 \u0628\u0691\u06BE\u0627 \u062F\u06CC\u0627\u06D4 Ironvale \u06A9\u06CC \u0648\u0627\u067E\u0633\u06CC Caio Okonjo \u0633\u06D2 \u0634\u0631\u0648\u0639 \u06C1\u0648\u0626\u06CC\u060C Dario Halloran \u0646\u06D2 Wendel Yilmaz \u06A9\u06D2 \u067E\u0627\u0633 \u067E\u0631 \u062D\u0633\u0627\u0628 \u0628\u0631\u0627\u0628\u0631 \u06A9\u06CC\u0627\u06D4 \u067E\u06BE\u0631 Juric \u06A9\u0627 \u0633\u0646\u06C1\u0631\u06CC \u0645\u0648\u0642\u0639 \u0628\u0686\u0627\u060C Leandro Varela \u06A9\u06D2 \u0679\u06CC\u06A9\u0644 \u06A9\u06D2 \u0628\u0639\u062F Noah Abara \u06A9\u06CC \u06AF\u0631\u062C \u062F\u0627\u0631 \u0636\u0631\u0628 \u0646\u06D2 Saltmere \u06A9\u06D2 \u06C1\u0627\u062A\u06BE \u0633\u06D2 \u06A9\u06BE\u06CC\u0644 \u0646\u06A9\u0627\u0644 \u062F\u06CC\u0627\u06D4 Saltmere \u06A9\u06D2 \u0644\u06CC\u06D2 \u0628\u0627\u062A \u0635\u0627\u0641 \u06C1\u06D2: \u0628\u0631\u062A\u0631\u06CC \u0636\u0627\u0626\u0639 \u06C1\u0648 \u06AF\u0626\u06CC\u060C \u0627\u0628 \u06A9\u0644\u0628 \u06A9\u0648 \u0627\u06CC\u0633\u06D2 \u062F\u0628\u0627\u0624 \u0645\u06CC\u06BA \u06A9\u06BE\u06CC\u0644 \u0628\u0646\u062F \u06A9\u0631\u0646\u0627 \u0633\u06CC\u06A9\u06BE\u0646\u0627 \u06C1\u0648\u06AF\u0627\u06D4",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The recap is coherent, logically sequenced, and clearly explains what happened and why, with only minor language/flow issues."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is well-written, cohesive, and fluent, with only minor awkwardness in phrasing."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response fully addresses the request and adds useful insight about the momentum shift and Saltmere failing under pressure."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Mostly accurate and relevant, but somewhat incomplete on the tactical/statistical reasons behind Ironvale\u2019s comeback."
+      }
+    ]
+  },
+  {
+    "Scenario": "press-flip",
+    "Minute": 23,
+    "Moment": "Goal",
+    "Viewer": "Analyst-en",
+    "Language": "en",
+    "Title": "Brandt punishes the regain",
+    "Body": "Elias Brandt won it back with an interception in the middle third, then scored 6 s later from a 0.38 xG chance. Northbridge City lead 1-0 at 23, so the game has shifted from balanced to their lead-state. Harbour now need to protect central possession better, or Northbridge City can keep attacking quickly after regains.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response fully addresses the prompt and adds useful tactical insight about transition threat and central possession security."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is well organized, easy to follow, and clearly explains both what happened and why it matters tactically."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, relevant, complete, and well-grounded in the provided match context."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The text is well-structured and clear, with varied vocabulary and only minor awkward wording."
+      }
+    ]
+  },
+  {
+    "Scenario": "press-flip",
+    "Minute": 23,
+    "Moment": "Goal",
+    "Viewer": "Casual-en-Home",
+    "Language": "en",
+    "Title": "Northbridge City strike first",
+    "Body": "Elias Brandt has put Northbridge City ahead with the opener. That gives your team the upper hand at 1-0 and means they can keep pushing while Harbour now have to chase.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is fluent, coherent, and well-structured, with only minor limitations in complexity and style."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is clear, logically organized, and easy to follow, with a concise explanation of the goal and its significance."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, relevant, and complete for a short casual-fan card, with no unsupported or incorrect details."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response directly fulfills the request with a clear, casual, broadcast-style card and includes relevant implications of the goal."
+      }
+    ]
+  },
+  {
+    "Scenario": "press-flip",
+    "Minute": 23,
+    "Moment": "Goal",
+    "Viewer": "Casual-ur-Away",
+    "Language": "ur",
+    "Title": "Northbridge City \u0646\u06D2 \u067E\u06C1\u0644\u0627 \u0648\u0627\u0631 \u06A9\u0631 \u062F\u06CC\u0627",
+    "Body": "Elias Brandt \u0646\u06D2 \u062E\u0648\u062F \u0628\u0627\u0644 \u062C\u06CC\u062A \u06A9\u0631 Northbridge City \u06A9\u0648 \u0628\u0631\u062A\u0631\u06CC \u062F\u0644\u0627 \u062F\u06CC \u0627\u0648\u0631 \u067E\u06BE\u0631 \u0628\u0691\u06CC \u062A\u06CC\u0632\u06CC \u0633\u06D2 \u0641\u0646\u0634 \u06A9\u06CC\u0627\u06D4 \u0627\u0633 \u06A9\u06D2 \u0633\u0627\u062A\u06BE Northbridge \u0622\u06AF\u06D2 \u06C1\u06CC\u06BA \u0627\u0648\u0631 Harbour United \u06A9\u0648 \u0627\u0628 \u0645\u06CC\u0686 \u0645\u06CC\u06BA \u0648\u0627\u067E\u0633\u06CC \u06A9\u06D2 \u0644\u06CC\u06D2 \u0632\u0648\u0631 \u0644\u06AF\u0627\u0646\u0627 \u06C1\u0648\u06AF\u0627\u06D4",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, relevant, concise, and grounded in the provided match context, with no unsupported claims."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response fully addresses the request in Urdu with a clear summary of the goal and its match significance, with no major irrelevant additions."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is coherent, well-structured, and clearly explains both what happened and its significance, though it is not especially sophisticated."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is well-articulated and clear, with only minor awkwardness, so it fits Proficient Fluency."
+      }
+    ]
+  },
+  {
+    "Scenario": "press-flip",
+    "Minute": 61,
+    "Moment": "Goal",
+    "Viewer": "Analyst-en",
+    "Language": "en",
+    "Title": "Rapid regain brings Harbour level",
+    "Body": "Omar Haddad won it with a tackle in Harbour United\u2019s own third, and Theo Laurent finished 10 s later after a 1-pass move. The shot carried 0.31 xG from 18 m, and Harbour are level at 1-1 in the 61st minute. Watch whether Northbridge City can protect better against quick transitions after losing possession.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is clear, grammatical, and well-organized, with only minor awkward phrasing that prevents it from being fully exceptional."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is clear, well-organized, and easy to follow, with strong relevance to a tactically minded football viewer."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response fully addresses the prompt and adds useful tactical context about quick transitions and defensive protection."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is fully grounded in the context and includes the key factual and tactical details without adding unsupported information."
+      }
+    ]
+  },
+  {
+    "Scenario": "press-flip",
+    "Minute": 61,
+    "Moment": "Goal",
+    "Viewer": "Casual-en-Home",
+    "Language": "en",
+    "Title": "Harbour level it up",
+    "Body": "Theo Laurent has brought Harbour United level with a quick finish. It\u2019s 1-1 now, so Northbridge City need to steady themselves and stop these fast breaks.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response fully addresses what happened and why it matters, with clear, concise wording suitable for an on-screen card."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is clear, logical, and well-structured for a short football broadcast card."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The card is accurate, relevant, and concise. It covers what happened and why it matters, with only minor omission of the assist/regain details."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is fluent and well-structured overall, with only a minor phrasing issue in the headline."
+      }
+    ]
+  },
+  {
+    "Scenario": "press-flip",
+    "Minute": 61,
+    "Moment": "Goal",
+    "Viewer": "Casual-ur-Away",
+    "Language": "ur",
+    "Title": "Harbour United \u0646\u06D2 \u0627\u0633\u06A9\u0648\u0631 \u0628\u0631\u0627\u0628\u0631 \u06A9\u0631 \u062F\u06CC\u0627 \u06C1\u06D2",
+    "Body": "Theo Laurent \u0646\u06D2 Harbour United \u06A9\u0648 1-1 \u067E\u0631 \u0648\u0627\u067E\u0633 \u0644\u0627 \u062F\u06CC\u0627 \u06C1\u06D2\u06D4 \u0627\u0628 \u0631\u0641\u062A\u0627\u0631 \u0622\u067E \u06A9\u06CC \u0679\u06CC\u0645 \u06A9\u06D2 \u067E\u0627\u0633 \u06C1\u06D2\u060C \u0627\u0648\u0631 \u0627\u0646\u06C1\u06CC\u06BA \u06CC\u06C1\u0627\u06BA \u0633\u06D2 \u0627\u0633 \u067E\u0631 \u0645\u0632\u06CC\u062F \u0628\u0646\u0627\u0646\u0627 \u06C1\u0648\u06AF\u0627\u06D4",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is fluent and coherent with only minor awkward phrasing, so it fits Proficient Fluency."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is coherent, logically structured, and clearly explains both what happened and its significance, with only minor wording ambiguity."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response directly answers what happened and why it matters, with accurate, concise Urdu wording, but has a minor neutrality issue."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Mostly accurate and relevant, but includes a small unsupported assumption about momentum/\u201Cyour team.\u201D"
+      }
+    ]
+  },
+  {
+    "Scenario": "press-flip",
+    "Minute": 87,
+    "Moment": "Goal",
+    "Viewer": "Analyst-en",
+    "Language": "en",
+    "Title": "Rana turns regain into lead",
+    "Body": "Bilal Rana won it in the middle third and scored 8 s later to give Harbour United a 1-2 lead in the 87 minute. The move took 2 passes, and the finish came from 19 m at 94 km/h with an xG of 0.28.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response directly fulfills the request with a short, relevant tactical card and clearly explains both the action and its significance."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 3,
+        "Failed": true,
+        "Reason": "The response is clear overall but contains noticeable awkward phrasing and minor grammatical errors."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, relevant, and complete, using only context-supported details to describe what happened and why it matters."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is coherent, relevant, and well-structured for an on-screen football card, with only minor wording issues."
+      }
+    ]
+  },
+  {
+    "Scenario": "press-flip",
+    "Minute": 87,
+    "Moment": "Goal",
+    "Viewer": "Casual-en-Home",
+    "Language": "en",
+    "Title": "Harbour United strike late",
+    "Body": "Bilal Rana has put Harbour United 2-1 up in the 87th minute. Northbridge City now have to chase the game, with Harbour United holding the upper hand.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is clear, concise, and logically structured, with a smooth connection between the goal event and its match significance."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Clear, well-written, and coherent with good vocabulary and no noticeable errors, but not highly elaborate or exceptional."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, relevant, and well-grounded in the context, giving the key facts and significance of the late goal."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response fully addresses the prompt and adds relevant match-context insight suitable for a casual fan."
+      }
+    ]
+  },
+  {
+    "Scenario": "press-flip",
+    "Minute": 87,
+    "Moment": "Goal",
+    "Viewer": "Casual-ur-Away",
+    "Language": "ur",
+    "Title": "Bilal Rana \u0646\u06D2 Harbour United \u06A9\u0648 \u0628\u0631\u062A\u0631\u06CC \u062F\u0644\u0627 \u062F\u06CC",
+    "Body": "Bilal Rana \u0646\u06D2 \u0622\u062E\u0631\u06CC \u0644\u0645\u062D\u0627\u062A \u0645\u06CC\u06BA Harbour United \u06A9\u0648 \u0622\u06AF\u06D2 \u06A9\u0631 \u062F\u06CC\u0627 \u06C1\u06D2\u06D4 87 \u067E\u0631 \u06CC\u06C1 \u06AF\u0648\u0644 \u0622\u067E \u06A9\u06CC \u0679\u06CC\u0645 \u06A9\u0648 \u0628\u0631\u062A\u0631\u06CC \u062F\u0644\u0627\u062A\u0627 \u06C1\u06D2 \u0627\u0648\u0631 \u0627\u0628 \u0648\u06C1 \u0627\u0633 \u0628\u0631\u062A\u0631\u06CC \u06A9\u0648 \u0628\u0686\u0627\u0646\u06D2 \u067E\u0631 \u062A\u0648\u062C\u06C1 \u062F\u06D2 \u0633\u06A9\u062A\u06CC \u06C1\u06D2\u06D4",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is coherent, logically organized, and directly addresses what happened and why the goal matters, with only a small wording issue."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, relevant, and appropriately short in Urdu, though it omits some contextual details like the score."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is clear, coherent, and mostly well-written, with only minor phrasing issues."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response directly addresses the prompt with a short Urdu card explaining the goal and its significance, but it appears to invent specific details such as the scorer and minute."
+      }
+    ]
+  },
+  {
+    "Scenario": "press-flip",
+    "Minute": 91,
+    "Moment": "FullTime",
+    "Viewer": "Analyst-en",
+    "Language": "en",
+    "Title": "Harbour Turn Chaos Into Victory",
+    "Body": "Northbridge City 1-2 Harbour United: the turning point was Bilal Rana\u2019s 87-minute strike, turning Northbridge\u2019s 60% possession and 14 shots into a losing position because Harbour were sharper in transition. At 14, Elias Brandt had a 0.38 xG chance from 2 m saved, but at 23 he won possession himself by interception in the middle third and scored 6 s later from 18 m to make it 1-0. Brandt then saw another big chance saved at 27, this one worth 0.44 xG from 4 m, before Harbour\u2019s warning at 55 when Rana put a 0.58 xG chance wide from 7 m. At 61, Omar Haddad\u2019s tackle in Harbour\u2019s own third led to a 1-pass move, his assist, and Theo Laurent\u2019s 96 km/h finish from 18 m for 1-1. Then at 87, Rana won it himself with a tackle in the middle third, Diego Alvarez assisted after 2 passes, and Rana hit a 94 km/h shot from 19 m to complete Harbour\u2019s comeback despite Northbridge\u2019s 2.67 xG to Harbour\u2019s 3.71.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response fully addresses the requested recap and adds useful tactical/statistical insight explaining why the match went Harbour\u2019s way."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is coherent, logically ordered, and tactically relevant, with clear cause-and-effect links explaining Harbour\u2019s comeback."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Well-written and fluent overall, with strong coherence and vocabulary, but minor phrasing issues and dense sentence structure keep it from being exceptional."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is accurate and well grounded, but slightly incomplete tactically because it misses the high-press adjustment that helped Harbour take control."
+      }
+    ]
+  },
+  {
+    "Scenario": "press-flip",
+    "Minute": 91,
+    "Moment": "FullTime",
+    "Viewer": "Casual-en-Home",
+    "Language": "en",
+    "Title": "Harbour Snatch It Late",
+    "Body": "Northbridge City 1-2 Harbour United, and Bilal Rana\u2019s late strike was the heartbreaker that turned it Harbour\u2019s way. Elias Brandt was denied from close range early on, then made no mistake soon after to put Northbridge in front. Brandt had another big chance saved before Theo Laurent hit back for Harbour after Omar Haddad won it and set him up. Yusuf Demir then saw a huge Northbridge chance saved with the game level, and Rana punished them at the end after winning it himself and finishing from Diego Alvarez\u2019s pass. It matters because Northbridge had the chances to take control, but Harbour leave with the upper hand and Northbridge are left wondering how that slipped away.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is well-written, clear, and cohesive, with strong grammar and effective sports-reporting style, though it falls short of exceptional sophistication."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response fully addresses the query and adds useful context about the flow of the match and why the result happened."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is accurate and relevant, with the main events correctly supported by the context, though it could more fully explain Harbour\u2019s tactical shift/high press as a reason the game changed."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The recap is coherent, logically ordered, and clearly connects the key events to the final outcome, though it is not especially sophisticated in structure."
+      }
+    ]
+  },
+  {
+    "Scenario": "press-flip",
+    "Minute": 91,
+    "Moment": "FullTime",
+    "Viewer": "Casual-ur-Away",
+    "Language": "ur",
+    "Title": "Harbour United \u06A9\u06CC \u062F\u06BE\u0645\u0627\u06A9\u06D2 \u062F\u0627\u0631 \u0648\u0627\u067E\u0633\u06CC",
+    "Body": "Northbridge City 1-2 Harbour United\u060C \u0627\u0635\u0644 \u0645\u0648\u0691 Bilal Rana \u06A9\u0627 \u0622\u062E\u0631\u06CC \u0648\u0627\u0631 \u0628\u0646\u0627 \u062C\u0633 \u0646\u06D2 \u0645\u06CC\u0686 Harbour United \u06A9\u06CC \u062C\u06BE\u0648\u0644\u06CC \u0645\u06CC\u06BA \u0688\u0627\u0644 \u062F\u06CC\u0627! \u067E\u06C1\u0644\u06D2 Bilal Rana \u0646\u06D2 \u0628\u0631\u0627\u0628\u0631 \u06A9\u0631\u0646\u06D2 \u06A9\u0627 \u0633\u0646\u06C1\u0631\u06CC \u0645\u0648\u0642\u0639 \u0628\u0627\u06C1\u0631 \u0645\u0627\u0631\u0627\u060C \u067E\u06BE\u0631 Theo Laurent \u0646\u06D2 Omar Haddad \u06A9\u06D2 \u06A9\u0627\u0645 \u0633\u06D2 \u0645\u06CC\u0686 \u0628\u0631\u0627\u0628\u0631 \u06A9\u06CC\u0627\u06D4 \u0627\u0633 \u06A9\u06D2 \u0628\u0639\u062F Bilal Rana \u06A9\u06CC \u06A9\u0648\u0634\u0634 \u0628\u0686 \u06AF\u0626\u06CC \u0627\u0648\u0631 Diego Alvarez \u06A9\u06D2 \u062F\u0648 \u0628\u0691\u06D2 \u0645\u0648\u0627\u0642\u0639 \u0628\u06BE\u06CC \u0628\u0627\u06C1\u0631 \u0646\u06A9\u0644 \u06AF\u0626\u06D2\u060C \u0645\u06AF\u0631 \u0622\u062E\u0631 \u0645\u06CC\u06BA Bilal Rana \u0646\u06D2 Diego Alvarez \u06A9\u06CC \u0645\u062F\u062F \u0633\u06D2 \u0641\u06CC\u0635\u0644\u06C1 \u06A9\u0646 \u06AF\u0648\u0644 \u062F\u0627\u063A \u062F\u06CC\u0627\u06D4 \u06CC\u06C1 Harbour United \u06A9\u06D2 \u0644\u06CC\u06D2 \u0628\u0691\u06CC \u0628\u0627\u062A \u06C1\u06D2\u060C \u0627\u0628 \u0628\u0631\u062A\u0631\u06CC \u0627\u0646 \u06A9\u06D2 \u06C1\u0627\u062A\u06BE \u0645\u06CC\u06BA \u06C1\u06D2 \u0627\u0648\u0631 \u0628\u0633 \u0622\u062E\u0631 \u062A\u06A9 \u06CC\u06C1\u06CC \u06AF\u0631\u0641\u062A \u0642\u0627\u0626\u0645 \u0631\u06A9\u06BE\u0646\u06CC \u06C1\u06D2\u06D4",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is coherent, logically ordered, and easy to follow, but not exceptionally polished or seamless."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is well-written, engaging, and mostly fluent, with only minor phrasing issues."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is relevant and mostly addresses the request with a concise Urdu match recap, but it could better explain why the match unfolded that way and avoid ambiguous phrasing."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is mostly grounded and accurate, but incomplete for the requested full-time recap and misses important causal details from the context."
+      }
+    ]
+  },
+  {
+    "Scenario": "smash-and-grab",
+    "Minute": 28,
+    "Moment": "BigChance",
+    "Viewer": "Analyst-en",
+    "Language": "en",
+    "Title": "Baptiste denied from close range",
+    "Body": "Joaquin Baptiste\u0027s 0.40 xG chance from 7 m was saved with the score at 0-0. It comes at 28 minutes in a chaotic spell, and Corvane City are still waiting for a clean high-quality opening. That stop keeps the match level for now.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is coherent, logically structured, and easy to follow, though not especially sophisticated or seamless enough for the highest rating."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response directly fits the requested format and audience, accurately explaining the chance and its significance with useful tactical context."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Well-written and coherent with good vocabulary and minor stylistic limitations; fits proficient fluency."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Mostly grounded and accurate, but includes one slightly unsupported/contradictory tactical interpretation."
+      }
+    ]
+  },
+  {
+    "Scenario": "smash-and-grab",
+    "Minute": 28,
+    "Moment": "BigChance",
+    "Viewer": "Casual-en-Home",
+    "Language": "en",
+    "Title": "Baptiste comes close",
+    "Body": "Joaquin Baptiste forced a save for Corvane City from close range. It stays 0-0, so your team still need to turn this into a goal to get the upper hand.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response addresses the prompt well with accurate, concise on-screen wording and explains the event and importance, though it could be slightly more polished/neutral."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is clear, logically organized, and directly answers what happened and why it matters, though it is simple rather than exceptionally polished."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, relevant, concise, and covers what happened and why it matters, with no unsupported details beyond a minor \u201Cyour team\u201D phrasing."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 3,
+        "Failed": true,
+        "Reason": "The response is clear and readable with only a minor grammatical issue, but it lacks the complexity and polish of higher fluency levels."
+      }
+    ]
+  },
+  {
+    "Scenario": "smash-and-grab",
+    "Minute": 28,
+    "Moment": "BigChance",
+    "Viewer": "Casual-ur-Away",
+    "Language": "ur",
+    "Title": "Duskmoor \u0627\u06CC\u06A9 \u0628\u0691\u06D2 \u062E\u0637\u0631\u06D2 \u0633\u06D2 \u0628\u0686 \u06AF\u0626\u06D2",
+    "Body": "Joaquin Baptiste \u06A9\u0648 Corvane City \u06A9\u06D2 \u0644\u06CC\u06D2 \u0627\u06CC\u06A9 \u0628\u0691\u0627 \u0645\u0648\u0642\u0639 \u0645\u0644\u0627\u060C \u0645\u06AF\u0631 \u0648\u06C1 \u0628\u0686\u0627 \u0644\u06CC\u0627 \u06AF\u06CC\u0627 \u0627\u0648\u0631 Duskmoor United 0-0 \u067E\u0631 \u0628\u0631\u0627\u0628\u0631 \u06C1\u06CC\u06BA\u06D4 \u0627\u0633 \u06A9\u06D2 \u0628\u0639\u062F \u0628\u06BE\u06CC \u0645\u06CC\u0686 \u0628\u0631\u0627\u0628\u0631 \u06C1\u06CC \u06C1\u06D2\u060C \u0644\u06CC\u06A9\u0646 Duskmoor \u06A9\u0648 \u0686\u0648\u06A9\u0646\u0627 \u0631\u06C1\u0646\u0627 \u06C1\u0648\u06AF\u0627 \u06A9\u06CC\u0648\u0646\u06A9\u06C1 Corvane City \u0627\u0628 \u0628\u06BE\u06CC \u062E\u0637\u0631\u06C1 \u0628\u0646\u06D2 \u06C1\u0648\u0626\u06D2 \u06C1\u06CC\u06BA\u06D4",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, relevant, and sufficiently complete for a short on-screen card, with no unsupported major claims."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is coherent, logically structured, and clearly connects the missed/saved chance to the match situation."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The text is clear and readable with good grammar overall, but minor phrasing issues prevent it from being exceptional."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response directly addresses the prompt with accurate-looking, complete Urdu content and explains both the event and its significance."
+      }
+    ]
+  },
+  {
+    "Scenario": "smash-and-grab",
+    "Minute": 39,
+    "Moment": "BigChance",
+    "Viewer": "Analyst-en",
+    "Language": "en",
+    "Title": "Corvane miss a big opening",
+    "Body": "Dmitri Halloran had a 0.46 xG chance from 7 m in the 39th minute, but he finished wide. With the score still 0-0, Corvane City miss the chance to turn pressure into a lead. The game stays unresolved for now.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is clear, logically organized, and directly relevant, with smooth connections between the event and its tactical significance."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, relevant, concise, and includes all key contextual details needed for the on-screen card."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response communicates the event clearly with good vocabulary and structure, though it has a small grammatical inconsistency."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response fully addresses the prompt with accurate, concise match-card wording and adds useful analytical context such as xG and game-state importance."
+      }
+    ]
+  },
+  {
+    "Scenario": "smash-and-grab",
+    "Minute": 39,
+    "Moment": "BigChance",
+    "Viewer": "Casual-en-Home",
+    "Language": "en",
+    "Title": "Corvane waste a big opening",
+    "Body": "Dmitri Halloran has just missed a big chance for Corvane City, firing wide from 7 m. With it still 0-0 at 39, Corvane need to keep pushing or that opening could be costly.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response fully addresses the request with accurate, relevant, and concise on-screen wording, including both what happened and why it matters."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is clear, concise, and well-organized, making it easy for a casual football fan to understand the chance and its importance."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is fully grounded: it accurately captures what happened and why it matters without adding unsupported details."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 3,
+        "Failed": true,
+        "Reason": "The response clearly conveys the event but contains a few awkward or grammatically imperfect phrases, so it is competent rather than highly polished."
+      }
+    ]
+  },
+  {
+    "Scenario": "smash-and-grab",
+    "Minute": 39,
+    "Moment": "BigChance",
+    "Viewer": "Casual-ur-Away",
+    "Language": "ur",
+    "Title": "\u06A9\u0648\u0631\u0648\u0627\u0646 \u0646\u06D2 \u0628\u0691\u0627 \u0645\u0648\u0642\u0639 \u0636\u0627\u0626\u0639 \u06A9\u0631 \u062F\u06CC\u0627",
+    "Body": "Dmitri Halloran \u0646\u06D2 \u0627\u0628\u06BE\u06CC \u0627\u0628\u06BE\u06CC Corvane City \u06A9\u06D2 \u0644\u06CC\u06D2 \u0627\u06CC\u06A9 \u0628\u0691\u0627 \u0645\u0648\u0642\u0639 \u06AF\u0646\u0648\u0627 \u062F\u06CC\u0627\u060C \u06AF\u06CC\u0646\u062F \u06AF\u06CC\u0645 \u0628\u0631\u0627\u0628\u0631 \u0631\u06C1\u062A\u06D2 \u06C1\u0648\u0626\u06D2 \u0628\u0627\u06C1\u0631 \u0686\u0644\u06CC \u06AF\u0626\u06CC\u06D4 \u0627\u0633 \u06A9\u06D2 \u0633\u0627\u062A\u06BE \u0627\u0633\u06A9\u0648\u0631 0-0 \u06C1\u06CC \u06C1\u06D2\u060C \u06CC\u0639\u0646\u06CC Duskmoor United \u0627\u0628\u06BE\u06CC \u0628\u06BE\u06CC \u067E\u0648\u0631\u06CC \u0637\u0631\u062D \u0645\u0642\u0627\u0628\u0644\u06D2 \u0645\u06CC\u06BA \u06C1\u06CC\u06BA \u0627\u0648\u0631 Corvane \u0646\u06D2 \u0627\u0628\u06BE\u06CC \u062A\u06A9 \u0628\u0631\u062A\u0631\u06CC \u0646\u06C1\u06CC\u06BA \u0644\u06CC\u06D4",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is clear, logically organized, and directly answers what happened and why it matters."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is clear, well-structured, and fluent, with minor awkwardness and code-mixing that do not affect understanding."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, relevant, and complete for a short on-screen Urdu card about what happened and why it matters."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response directly addresses the requested format and content, though it adds specific details not provided in the query."
+      }
+    ]
+  },
+  {
+    "Scenario": "smash-and-grab",
+    "Minute": 88,
+    "Moment": "Goal",
+    "Viewer": "Analyst-en",
+    "Language": "en",
+    "Title": "Fenwick punishes the regain",
+    "Body": "Duskmoor United lead 0-1 in the 88th minute after Joaquin Galvao\u2019s middle-third interception sparked a 1-pass move finished by Ezra Fenwick 9 s later. The shot came from 18 m with 0.24 xG and 95 km/h, showing how quickly the regain turned into a decisive transition.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is fully grounded in the context, accurate, complete, and well tailored to a tactically minded football viewer."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is clear, logically ordered, and directly addresses what happened and why it matters for a tactically minded viewer."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response fully addresses the prompt and adds relevant tactical detail and significance for a tactically minded football viewer."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Well-written and coherent with strong vocabulary, but minor awkward phrasing prevents it from being exceptional."
+      }
+    ]
+  },
+  {
+    "Scenario": "smash-and-grab",
+    "Minute": 88,
+    "Moment": "Goal",
+    "Viewer": "Casual-en-Home",
+    "Language": "en",
+    "Title": "Duskmoor strike late",
+    "Body": "Ezra Fenwick has put Duskmoor United ahead late. That leaves Corvane City chasing the game in the 88th minute.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response fully addresses the prompt with accurate, relevant, and appropriately brief information."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is clear, logically organized, and directly explains both what happened and why it matters."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Clear, well-structured, and readable with only minor headline-style fragmentation."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, relevant, concise, and includes the key \u201Cwhat happened\u201D and \u201Cwhy it matters\u201D details from the context."
+      }
+    ]
+  },
+  {
+    "Scenario": "smash-and-grab",
+    "Minute": 88,
+    "Moment": "Goal",
+    "Viewer": "Casual-ur-Away",
+    "Language": "ur",
+    "Title": "Fenwick \u0646\u06D2 Duskmoor \u06A9\u0648 \u0628\u0631\u062A\u0631\u06CC \u062F\u0644\u0627 \u062F\u06CC",
+    "Body": "Ezra Fenwick \u0646\u06D2 \u062F\u06CC\u0631 \u0633\u06D2 \u06AF\u0648\u0644 \u06A9\u0631 \u06A9\u06D2 Duskmoor United \u06A9\u0648 \u0622\u06AF\u06D2 \u06A9\u0631 \u062F\u06CC\u0627 \u06C1\u06D2\u06D4 \u0627\u0628 \u0622\u067E \u06A9\u06CC \u0679\u06CC\u0645 0-1 \u0633\u06D2 88 \u0645\u06CC\u06BA \u0622\u06AF\u06D2 \u06C1\u06D2 \u0627\u0648\u0631 \u0627\u0633\u06D2 \u0627\u0633 \u0628\u0631\u062A\u0631\u06CC \u06A9\u0648 \u0633\u0646\u0628\u06BE\u0627\u0644 \u06A9\u0631 \u0631\u06A9\u06BE\u0646\u0627 \u06C1\u0648\u06AF\u0627\u06D4",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, relevant, and well-grounded in the context, with the key goal and match-importance details included."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is coherent, clearly structured, and addresses what happened and why it matters, with only minor wording issues."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Well-written and easily understandable Urdu with only minor phrasing issues."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response directly addresses the request with a short Urdu card covering the goal and its importance, with only minor concerns about assumed details."
+      }
+    ]
+  },
+  {
+    "Scenario": "smash-and-grab",
+    "Minute": 91,
+    "Moment": "FullTime",
+    "Viewer": "Analyst-en",
+    "Language": "en",
+    "Title": "Fenwick Punishes Wasteful Corvane",
+    "Body": "Corvane City 0-1 Duskmoor United: the turning point was Ezra Fenwick\u2019s 88-minute goal, a ruthless transition finish after Corvane had piled up 30 shots and 5.52 xG without scoring. At 28 minutes, Joaquin Baptiste had a 0.40 xG chance from 7 m saved with the game still 0-0. At 39 minutes, Dmitri Halloran went wide from 7 m with a 0.46 xG opening, and Corvane\u2019s finishing problem was already taking shape. After the break, Baptiste was denied again at 57 minutes from 1 m, Farid Orsini had a 0.51 xG chance saved at 62 minutes, then another saved at 72 minutes from 18 m. Then at 88 minutes, Joaquin Galvao intercepted in the middle third and assisted Fenwick within 9 s, the 95 km/h strike from 18 m giving Duskmoor United the win despite only 2 shots and 0.27 xG.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is coherent, logically ordered, and easy to follow, with clear cause-and-effect between Corvane\u2019s wastefulness and Duskmoor\u2019s late winner."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is fluent and well-structured, with strong vocabulary and clear sequencing, but it is more functional than sophisticated."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The recap is accurate, relevant, and well grounded in the context, with only minor omissions of tactical detail."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, complete, and adds useful tactical/statistical insight into why the match went that way."
+      }
+    ]
+  },
+  {
+    "Scenario": "smash-and-grab",
+    "Minute": 91,
+    "Moment": "FullTime",
+    "Viewer": "Casual-en-Home",
+    "Language": "en",
+    "Title": "Corvane Punished Late",
+    "Body": "Corvane City have lost 0-1, with Ezra Fenwick\u2019s late strike the turning point after the hosts missed chance after chance. Joaquin Baptiste was denied early, Dmitri Halloran put one wide, then Baptiste and Farid Orsini both saw big openings saved as Corvane kept knocking without breaking through. Then Duskmoor nicked it when Joaquin Galvao won it and set up Fenwick to finish, which leaves Corvane wondering how on earth they came away with nothing.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The recap is clear, well-organized, and logically connects Corvane\u2019s missed chances to Duskmoor\u2019s late winner."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is relevant, accurate in form, concise, and explains both the match events and outcome clearly, with useful context for a casual fan."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Well-written and coherent overall, with strong vocabulary and smooth flow, but minor grammatical issues prevent it from being exceptional."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate and directly answers the recap request, with only minor omissions of statistical detail."
+      }
+    ]
+  },
+  {
+    "Scenario": "smash-and-grab",
+    "Minute": 91,
+    "Moment": "FullTime",
+    "Viewer": "Casual-ur-Away",
+    "Language": "ur",
+    "Title": "Duskmoor United \u06A9\u06CC \u0688\u0631\u0627\u0645\u0627\u0626\u06CC \u062C\u06CC\u062A",
+    "Body": "Corvane City 0-1 Duskmoor United\u060C \u0679\u0631\u0646\u0646\u06AF \u067E\u0648\u0627\u0626\u0646\u0679 Ezra Fenwick \u06A9\u0627 \u0622\u062E\u0631 \u0645\u06CC\u06BA \u06AF\u0648\u0644 \u062A\u06BE\u0627 \u062C\u0633 \u0646\u06D2 \u0633\u0627\u0631\u0627 \u0645\u06CC\u0686 \u067E\u0644\u0679 \u062F\u06CC\u0627\u06D4 \u067E\u06C1\u0644\u06D2 Joaquin Baptiste \u06A9\u0627 \u0645\u0648\u0642\u0639 \u0628\u0686 \u06AF\u06CC\u0627\u060C \u067E\u06BE\u0631 Dmitri Halloran \u0646\u06D2 \u0628\u0627\u06C1\u0631 \u0645\u0627\u0631\u0627\u060C \u0627\u0633 \u06A9\u06D2 \u0628\u0639\u062F Joaquin Baptiste \u0627\u0648\u0631 Farid Orsini \u06A9\u06CC \u06A9\u0648\u0634\u0634\u06CC\u06BA \u0628\u06BE\u06CC \u0631\u06A9 \u06AF\u0626\u06CC\u06BA\u060C \u0645\u06AF\u0631 \u0622\u062E\u0631 \u0645\u06CC\u06BA Ezra Fenwick \u0646\u06D2 Duskmoor United \u06A9\u0648 \u062C\u062A\u0648\u0627 \u062F\u06CC\u0627\u06D4 Duskmoor United \u06A9\u06D2 \u0644\u06CC\u06D2 \u06CC\u06C1 \u06A9\u0645\u0627\u0644 \u0646\u062A\u06CC\u062C\u06C1 \u06C1\u06D2\u060C \u06A9\u06CC\u0648\u0646\u06A9\u06C1 Corvane City \u06A9\u06D2 \u062F\u0628\u0627\u0624 \u06A9\u06D2 \u0628\u0627\u0648\u062C\u0648\u062F \u0628\u0631\u062A\u0631\u06CC \u0627\u0646\u06C1\u06CC \u06A9\u06D2 \u06C1\u0627\u062A\u06BE \u0631\u06C1\u06CC\u06D4",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The recap is coherent, relevant, and easy to follow, with clear match events and outcome explanation, though not especially polished or seamless."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Well-written and coherent Urdu sports summary with good flow, though not highly sophisticated or flawless."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The recap is mostly accurate and relevant, but it omits important context explaining the result, especially Corvane\u2019s dominance and Duskmoor\u2019s late counter from an interception."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response directly addresses the query and is mostly complete, though the \u201Cwhy it went that way\u201D explanation is fairly brief and not especially insightful."
+      }
+    ]
+  },
+  {
+    "Scenario": "stalemate",
+    "Minute": 14,
+    "Moment": "BigChance",
+    "Viewer": "Analyst-en",
+    "Language": "en",
+    "Title": "Quaresma tests control at 14",
+    "Body": "Hassan Quaresma had a 0.38 xG chance from 2 m at 14, but it was saved. With the score still 0-0, Larkhaven FC missed a close-range opening that could have broken the control state. Watch whether they turn that chance into sustained pressure or let control reset.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is clear, logically ordered, and well suited to a tactically minded viewer, though it is slightly compressed and has minor phrasing ambiguity around \u201Cat 14.\u201D"
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is fluent, coherent, and well-structured, with only minor awkward phrasing."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, relevant, complete, and grounded in the provided match context without unsupported additions."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response directly satisfies the prompt and adds useful tactical insight about pressure and control state."
+      }
+    ]
+  },
+  {
+    "Scenario": "stalemate",
+    "Minute": 14,
+    "Moment": "BigChance",
+    "Viewer": "Casual-en-Home",
+    "Language": "en",
+    "Title": "Quaresma goes close for Larkhaven",
+    "Body": "Hassan Quaresma\u0027s close-range shot was saved, and Larkhaven FC so nearly had the opener. It keeps the game at 0-0, so your team need to turn that chance into pressure and take the upper hand.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response directly fits the requested format and includes what happened and why it matters, with relevant match context. It adds a small useful insight without going off-topic."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is clear, well-organized, and directly addresses what happened and why it matters in a fan-friendly way."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is well-written and coherent, with good grammar and effective communication, but it lacks the sophistication needed for the highest score."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, relevant, and complete for the on-screen card request, with no unsupported major claims."
+      }
+    ]
+  },
+  {
+    "Scenario": "stalemate",
+    "Minute": 14,
+    "Moment": "BigChance",
+    "Viewer": "Casual-ur-Away",
+    "Language": "ur",
+    "Title": "Quaresma \u06A9\u0648 \u0642\u0631\u06CC\u0628 \u0633\u06D2 \u0631\u0648\u06A9 \u062F\u06CC\u0627 \u06AF\u06CC\u0627",
+    "Body": "Hassan Quaresma \u06A9\u0648 \u0642\u0631\u06CC\u0628 \u0633\u06D2 \u0628\u0691\u0627 \u0645\u0648\u0642\u0639 \u0645\u0644\u0627\u060C \u0645\u06AF\u0631 keeper \u0646\u06D2 \u0627\u0633\u06D2 \u0631\u0648\u06A9 \u0644\u06CC\u0627 \u0627\u0648\u0631 \u06A9\u06BE\u06CC\u0644 0-0 \u06C1\u06CC \u06C1\u06D2\u06D4 \u0627\u0633 \u06A9\u06D2 \u0633\u0627\u062A\u06BE Eastmarsh Albion \u0628\u0631\u0627\u0628\u0631 \u06A9\u06CC \u067E\u0648\u0632\u06CC\u0634\u0646 \u0645\u06CC\u06BA \u0628\u0631\u0642\u0631\u0627\u0631 \u06C1\u06D2\u060C \u0627\u0648\u0631 Larkhaven FC \u06A9\u0648 \u0644\u06AF\u06D2 \u06AF\u0627 \u06A9\u06C1 \u0627\u0628 \u0627\u0646\u06C1\u06CC\u06BA \u06CC\u06C1\u0627\u06BA \u0633\u06D2 \u0645\u0632\u06CC\u062F \u062F\u0628\u0627\u0624 \u0628\u0691\u06BE\u0627\u0646\u0627 \u0686\u0627\u06C1\u06CC\u06D2\u06D4",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is coherent, clearly structured, and directly addresses what happened and why it matters."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The text communicates the match situation clearly and smoothly, with good structure and only minor fluency issues."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, relevant, and complete for the query, with no unsupported major claims."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response fully addresses the prompt and adds relevant match context about why the missed chance matters."
+      }
+    ]
+  },
+  {
+    "Scenario": "stalemate",
+    "Minute": 19,
+    "Moment": "BigChance",
+    "Viewer": "Analyst-en",
+    "Language": "en",
+    "Title": "Quaresma tests Eastmere control",
+    "Body": "Hassan Quaresma created a 0.45 xG chance from 20 m at 19\u0027. It was saved, so Larkhaven FC still have not changed the 0-0 scoreline. That is a clear interruption to Eastmere\u0027s control; watch whether Larkhaven can build pressure from it.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is coherent, concise, and easy to follow, though \u201CEastmere\u201D appears inconsistent with \u201CEastmarsh,\u201D slightly reducing clarity."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is well-written, coherent, and uses varied vocabulary with only minor limitations in style."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 3,
+        "Failed": true,
+        "Reason": "The response is mostly relevant and uses several correct match facts, but it includes incorrect/unsupported details, especially the wrong team name and unsupported control attribution."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is relevant and mostly complete, with tactical insight, but the incorrect team name prevents it from being fully comprehensive."
+      }
+    ]
+  },
+  {
+    "Scenario": "stalemate",
+    "Minute": 19,
+    "Moment": "BigChance",
+    "Viewer": "Casual-en-Home",
+    "Language": "en",
+    "Title": "Quaresma denied for Larkhaven",
+    "Body": "Hassan Quaresma has just been denied for Larkhaven FC. It stays level, so your team still have a chance to build pressure from here.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is clear and coherent, with a logical flow from what happened to why it matters, though it lacks some event detail."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 3,
+        "Failed": true,
+        "Reason": "The response mostly addresses the request with relevant, concise information, but lacks specific detail about what the chance was and has slightly awkward phrasing."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is well-written and understandable, with smooth phrasing and only minor awkwardness."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is mostly accurate and relevant, but includes a small unsupported assumption and is not fully precise about the chance quality."
+      }
+    ]
+  },
+  {
+    "Scenario": "stalemate",
+    "Minute": 19,
+    "Moment": "BigChance",
+    "Viewer": "Casual-ur-Away",
+    "Language": "ur",
+    "Title": "Quaresma \u0646\u06D2 keeper \u06A9\u0648 \u0628\u0686\u0627\u0624 \u067E\u0631 \u0645\u062C\u0628\u0648\u0631 \u06A9\u0631 \u062F\u06CC\u0627",
+    "Body": "Hassan Quaresma \u0646\u06D2 20 m \u0633\u06D2 keeper \u06A9\u0648 \u0622\u0632\u0645\u0627\u06CC\u0627\u060C \u0645\u06AF\u0631 19\u0027 \u067E\u0631 \u0627\u0633\u06D2 \u0631\u0648\u06A9 \u0644\u06CC\u0627 \u06AF\u06CC\u0627\u06D4 \u0627\u0633 \u0648\u0642\u062A \u0628\u06BE\u06CC \u0627\u0633\u06A9\u0648\u0631 0-0 \u06C1\u06D2\u060C \u0644\u06C1\u0670\u0630\u0627 Larkhaven FC \u0627\u06CC\u06A9 \u0628\u0691\u0627 \u0645\u0648\u0642\u0639 \u06AF\u0646\u0648\u0627 \u0628\u06CC\u0679\u06BE\u06D2 \u06A9\u06C1 \u0648\u06C1 \u0645\u06CC\u0686 \u067E\u0631 \u06AF\u0631\u0641\u062A \u0628\u0646\u0627 \u0644\u06CC\u062A\u06D2\u06D4",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The card is coherent, relevant, and easy to follow, with a clear explanation of what happened and why it matters."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Clear, coherent, and grammatically sound overall, with minor awkward phrasing and code-switching."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response accurately and completely reflects the provided match facts and explains why the saved big chance matters while keeping the style suitable for an on-screen card."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response addresses the prompt well by explaining the chance and its significance in Urdu, with only minor language/style issues."
+      }
+    ]
+  },
+  {
+    "Scenario": "stalemate",
+    "Minute": 33,
+    "Moment": "BigChance",
+    "Viewer": "Analyst-en",
+    "Language": "en",
+    "Title": "Quaresma misses Larkhaven\u0027s best opening",
+    "Body": "Hassan Quaresma has just put a 0.35 xG chance wide from 8 m with the score at 0-0 in the 33rd minute. That is a clear missed chance for Larkhaven FC to turn a balanced game their way. Watch whether they can keep finding close-range openings after that let-off.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, complete, and directly addresses the requested on-screen card without unsupported details."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is clear, logically organized, and directly addresses what happened and why it matters for a tactically minded viewer."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is clear, well-structured, and fluent, with only minor awkwardness in phrasing."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response fully addresses the prompt and adds useful tactical context for the viewer."
+      }
+    ]
+  },
+  {
+    "Scenario": "stalemate",
+    "Minute": 33,
+    "Moment": "BigChance",
+    "Viewer": "Casual-en-Home",
+    "Language": "en",
+    "Title": "Big chance goes begging",
+    "Body": "Hassan Quaresma has just put a big Larkhaven chance wide. At 33 with it still 0-0, that miss leaves Larkhaven FC needing to keep pushing to grab the upper hand.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, relevant, and complete for the requested short football card, grounded in the provided context."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is coherent, concise, and logically organized, with clear connections between what happened and its importance in the match."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Well-written and coherent with good grammar, though not highly sophisticated and with slight awkwardness."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response fully addresses the prompt with a short, clear match card explaining the missed chance and its significance."
+      }
+    ]
+  },
+  {
+    "Scenario": "stalemate",
+    "Minute": 33,
+    "Moment": "BigChance",
+    "Viewer": "Casual-ur-Away",
+    "Language": "ur",
+    "Title": "Larkhaven \u06A9\u06D2 \u0644\u06CC\u06D2 \u0628\u0691\u0627 \u0645\u0648\u0642\u0639 \u0636\u0627\u0626\u0639",
+    "Body": "Hassan Quaresma \u0646\u06D2 \u0627\u0628\u06BE\u06CC Larkhaven FC \u06A9\u06D2 \u0644\u06CC\u06D2 \u0627\u06CC\u06A9 \u0628\u0691\u0627 \u0645\u0648\u0642\u0639 \u0636\u0627\u0626\u0639 \u06A9\u0631 \u062F\u06CC\u0627\u060C \u0642\u0631\u06CC\u0628 \u0633\u06D2 \u0634\u0627\u0679 \u0628\u0627\u06C1\u0631 \u0686\u0644\u06CC \u06AF\u0626\u06CC. \u0627\u0633 \u0648\u0642\u062A \u0627\u0633\u06A9\u0648\u0631 0-0 \u06C1\u06CC \u06C1\u06D2\u060C \u0627\u0633 \u0644\u06CC\u06D2 Eastmarsh Albion \u06A9\u06D2 \u067E\u0627\u0633 \u0627\u0628\u06BE\u06CC \u0648\u0642\u062A \u06C1\u06D2\u060C \u0644\u06CC\u06A9\u0646 Larkhaven \u0627\u0628 \u0628\u06BE\u06CC \u0628\u0631\u062A\u0631\u06CC \u06A9\u06D2 \u0644\u06CC\u06D2 \u062F\u0628\u0627\u0624 \u0688\u0627\u0644 \u0631\u06C1\u06CC \u06C1\u06D2\u06D4",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is coherent, relevant, and clearly connects the missed chance to the match situation, with only slight language/flow issues."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is clear, well-structured, and fluent overall, with only minor grammatical awkwardness."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, relevant, and complete for a short on-screen Urdu card about the chance and its importance."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response directly addresses the requested format and content, though it adds specific details not provided in the query."
+      }
+    ]
+  },
+  {
+    "Scenario": "stalemate",
+    "Minute": 91,
+    "Moment": "FullTime",
+    "Viewer": "Analyst-en",
+    "Language": "en",
+    "Title": "Larkhaven Dominance Ends Goalless",
+    "Body": "Larkhaven FC 0-0 Eastmarsh Albion, with the turning point Eastmarsh surviving the 53-minute spell and then seeing Emre Whitlock\u2019s 68-minute chance saved despite Larkhaven\u2019s 3.73 xG and 25 shots. At 14, Hassan Quaresma had a 0.38 xG chance from 2 m saved, the first sign Larkhaven were getting into high-value areas. At 19, Quaresma was denied again from 20 m on a 0.45 xG chance, then at 33 he put an 8 m opportunity worth 0.35 xG wide. Eastmarsh\u2019s clearest opening came at 53, when Tariq Farouk missed wide from 5 m with a 0.52 xG chance, and the momentum briefly tilted their way as Larkhaven\u2019s last-five-minute possession dropped to 30%. At 68, Whitlock forced another save from an 18 m chance worth 0.52 xG, leaving Larkhaven with control, volume and territory, but no finish.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is coherent, logically ordered, and easy to follow, with clear match events and tactical context, though it could connect the tactical causes more smoothly."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Well-written, clear, and coherent with strong grammar and varied vocabulary, though slightly crowded with statistics."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is accurate and relevant, with strong match detail, but it lacks deeper tactical insight into why the game unfolded that way."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 3,
+        "Failed": true,
+        "Reason": "The recap is mostly grounded in the match data but includes some inaccurate or unsupported tactical interpretation, so it is not fully correct."
+      }
+    ]
+  },
+  {
+    "Scenario": "stalemate",
+    "Minute": 91,
+    "Moment": "FullTime",
+    "Viewer": "Casual-en-Home",
+    "Language": "en",
+    "Title": "Larkhaven Left Frustrated",
+    "Body": "Larkhaven FC 0-0 Eastmarsh Albion, and the turning point was Larkhaven\u2019s repeated failure to beat the keeper when the game was there for them. Hassan Quaresma was denied twice early on, then put another big opening wide before the break. Tariq Farouk missed Eastmarsh Albion\u2019s best chance after the restart, before Emre Whitlock and then Quaresma were both kept out. For Larkhaven FC, this feels like a missed win because they had the upper hand but could not turn pressure into a lead.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Well-written and fluent overall, with clear organization and smooth readability, though not especially sophisticated or stylistically exceptional."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is clear, well-organized, and easy for a casual football fan to follow, with a logical explanation of the result."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response fully addresses the requested recap with scoreline, main events, and the reason for the result, without unnecessary detail."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The recap is accurate, relevant, and complete for a short casual summary, using the key match events and explaining the draw through Larkhaven\u2019s missed chances despite dominance."
+      }
+    ]
+  },
+  {
+    "Scenario": "stalemate",
+    "Minute": 91,
+    "Moment": "FullTime",
+    "Viewer": "Casual-ur-Away",
+    "Language": "ur",
+    "Title": "\u0628\u0691\u0627 \u062F\u0628\u0627\u0624\u060C \u0645\u06AF\u0631 \u06AF\u0648\u0644 \u0646\u06C1\u06CC\u06BA",
+    "Body": "Larkhaven FC 0-0 Eastmarsh Albion \u2014 \u0645\u0648\u0691 \u06CC\u06C1\u06CC \u0631\u06C1\u0627 \u06A9\u06C1 Larkhaven FC \u06A9\u06CC \u0628\u0627\u0631 \u0628\u0627\u0631 \u0628\u0691\u06CC \u06A9\u0648\u0634\u0634\u06CC\u06BA \u0628\u0686 \u06AF\u0626\u06CC\u06BA \u0627\u0648\u0631 \u0645\u06CC\u0686 \u06C1\u0627\u062A\u06BE \u0633\u06D2 \u0646\u06A9\u0644\u0646\u06D2 \u0646\u06C1\u06CC\u06BA \u062F\u06CC\u0627 \u06AF\u06CC\u0627\u06D4 \u0634\u0631\u0648\u0639 \u0645\u06CC\u06BA Hassan Quaresma \u06A9\u06CC \u062F\u0648 \u062E\u0637\u0631\u0646\u0627\u06A9 \u0634\u0627\u0679\u0633 \u0628\u0686\u06CC\u06BA\u060C \u067E\u06BE\u0631 \u0627\u0646 \u06A9\u06CC \u0627\u06CC\u06A9 \u06A9\u0648\u0634\u0634 \u0628\u0627\u06C1\u0631 \u06AF\u0626\u06CC\u061B \u0628\u0639\u062F \u0645\u06CC\u06BA Tariq Farouk \u0646\u06D2 Eastmarsh Albion \u06A9\u0627 \u0628\u0691\u0627 \u0645\u0648\u0642\u0639 \u0636\u0627\u0626\u0639 \u06A9\u06CC\u0627\u060C Emre Whitlock \u06A9\u06CC \u0634\u0627\u0679 \u0631\u06A9\u06CC\u060C \u0627\u0648\u0631 \u0622\u062E\u0631 \u0645\u06CC\u06BA Hugo Halloran \u0628\u06BE\u06CC \u06AF\u0648\u0644 \u0646\u06C1 \u0628\u0646\u0627 \u0633\u06A9\u06D2\u06D4 Eastmarsh Albion \u06A9\u06D2 \u0644\u06CC\u06D2 \u06CC\u06C1 \u0646\u062A\u06CC\u062C\u06C1 \u0627\u0633 \u0644\u06CC\u06D2 \u0627\u06C1\u0645 \u06C1\u06D2 \u06A9\u06C1 \u0627\u062A\u0646\u06D2 \u062F\u0628\u0627\u0624 \u06A9\u06D2 \u0628\u0627\u0648\u062C\u0648\u062F \u0645\u0642\u0627\u0628\u0644\u06C1 \u0628\u0631\u0627\u0628\u0631 \u0631\u06C1\u0627\u060C \u0645\u06AF\u0631 \u062C\u06CC\u062A \u0686\u0627\u06C1\u06CC\u06D2 \u062A\u0648 \u0627\u06AF\u0644\u06CC \u0628\u0627\u0631 \u0627\u06CC\u0633\u06D2 \u0645\u0648\u0627\u0642\u0639 \u06A9\u0648 \u062E\u062A\u0645 \u06A9\u0631\u0646\u0627 \u06C1\u0648\u06AF\u0627\u06D4",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The text is fluent, well-organized, and readable, with only minor awkwardness that does not affect comprehension."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is clear, relevant, and logically organized, with only minor flow issues due to a dense sequence of chances."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response directly and fully addresses the request, with relevant match summary and a clear explanation of why it ended 0-0."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is accurate and relevant, but somewhat incomplete because it does not include the key dominance stats that explain the match flow."
+      }
+    ]
+  },
+  {
+    "Scenario": "thriller",
+    "Minute": 10,
+    "Moment": "Goal",
+    "Viewer": "Analyst-en",
+    "Language": "en",
+    "Title": "Esposito punishes the regain",
+    "Body": "Halden Forge lead 1-0 at 10\u0027 after Viktor Esposito turned a regain into a finish from 2 m. The move took only 3 passes and ended 13 s after Yannick Delacroix won the ball by tackle in the middle third. It was a 0.41 xG chance, so the quick transition created the opening rather than long possession.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, complete, tactically relevant, and fully grounded in the provided context."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is clear, concise, tactically relevant, and well-structured for an on-screen football card."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response fully addresses the prompt and adds relevant tactical insight about the quick transition and chance quality."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Clear, well-structured sports commentary with minor awkward phrasing and shorthand, but strong overall readability."
+      }
+    ]
+  },
+  {
+    "Scenario": "thriller",
+    "Minute": 10,
+    "Moment": "Goal",
+    "Viewer": "Casual-en-Home",
+    "Language": "en",
+    "Title": "Esposito puts Halden Forge ahead",
+    "Body": "Viktor Esposito has scored to give Halden Forge the lead. It makes it 1-0, so your team now have the upper hand and can choose whether to keep pushing or settle in.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is clear, relevant, and logically organized, with smooth connections between what happened and its significance."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is fluent, coherent, and well-structured, with only a minor grammatical/style issue and limited complexity."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, relevant, concise, and grounded in the context, directly explaining the goal and its importance."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response fully addresses what happened and why it matters in a concise, fan-friendly way, with only minor extra phrasing."
+      }
+    ]
+  },
+  {
+    "Scenario": "thriller",
+    "Minute": 10,
+    "Moment": "Goal",
+    "Viewer": "Casual-ur-Away",
+    "Language": "ur",
+    "Title": "Halden Forge \u0646\u06D2 \u067E\u06C1\u0644\u06D2 \u0648\u0627\u0631 \u06A9\u06CC\u0627",
+    "Body": "Halden Forge \u0646\u06D2 Viktor Esposito \u06A9\u06D2 \u062A\u06CC\u0632 \u0631\u0641\u062A\u0627\u0631 \u06AF\u0648\u0644 \u0633\u06D2 \u0628\u0631\u062A\u0631\u06CC \u0644\u06D2 \u0644\u06CC \u06C1\u06D2\u06D4 \u0627\u0628 Marrow Bay \u06A9\u0648 \u06A9\u06BE\u06CC\u0644 \u0645\u06CC\u06BA \u0648\u0627\u067E\u0633 \u0622\u0646\u0627 \u06C1\u0648\u06AF\u0627\u060C \u062C\u0628\u06A9\u06C1 Halden Forge 1-0 \u0633\u06D2 \u0633\u0628\u0642\u062A \u0644\u06CC\u06D2 \u06C1\u0648\u0626\u06D2 \u06C1\u06CC\u06BA\u06D4",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is clear, relevant, and well-organized, with a logical flow from the goal event to its match significance."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Well-written and fluent with good grammar and clarity, but limited complexity and stylistic range."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The card is accurate and relevant, but not fully complete because it leaves out some contextual details that could enrich \u201Cwhat happened.\u201D"
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response directly addresses the request in Urdu and explains both the event and its importance, with only minor unsupported detail."
+      }
+    ]
+  },
+  {
+    "Scenario": "thriller",
+    "Minute": 22,
+    "Moment": "Goal",
+    "Viewer": "Analyst-en",
+    "Language": "en",
+    "Title": "Marrow Bay strike after quick regain",
+    "Body": "Oskar Iqbal\u0027s middle-third interception sparked a 2-pass move, and Umar Strand finished from 11 m after 10 s. Bastian Rautio provided the assist, with the chance rated at 0.35 xG. It leaves the match level at 1-1 in the 22nd minute.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, complete, concise, and fully grounded in the provided match context."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response fully addresses the prompt with accurate, relevant tactical detail and explains the significance: the match is now level at 1-1."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is highly coherent: concise, logically sequenced, tactically relevant, and clearly connected to the match context."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is clear, well-structured, and mostly fluent, with only minor awkward phrasing."
+      }
+    ]
+  },
+  {
+    "Scenario": "thriller",
+    "Minute": 22,
+    "Moment": "Goal",
+    "Viewer": "Casual-en-Home",
+    "Language": "en",
+    "Title": "Marrow Bay level it up",
+    "Body": "Marrow Bay have just levelled it through Umar Strand. It\u2019s 1-1 now, so Halden Forge need to respond and find the next big moment.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is clear, logical, and well-structured for an on-screen match card, though it is fairly simple rather than highly developed."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, relevant, and directly addresses what happened and why it matters, with only minor omitted details."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 3,
+        "Failed": true,
+        "Reason": "The response is relevant and mostly complete, explaining the scorer, score impact, and match significance, but it omits details of the goal itself."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 3,
+        "Failed": true,
+        "Reason": "The response clearly communicates the match situation, but awkward phrasing and limited sentence variety keep it from higher fluency."
+      }
+    ]
+  },
+  {
+    "Scenario": "thriller",
+    "Minute": 22,
+    "Moment": "Goal",
+    "Viewer": "Casual-ur-Away",
+    "Language": "ur",
+    "Title": "Marrow Bay \u0646\u06D2 \u0628\u0631\u0627\u0628\u0631\u06CC \u06A9\u0631 \u0644\u06CC \u06C1\u06D2",
+    "Body": "Umar Strand \u0646\u06D2 \u062A\u06CC\u0632 \u0631\u0641\u062A\u0627\u0631 \u0645\u0648\u0648 \u06A9\u06D2 \u0628\u0639\u062F Marrow Bay \u06A9\u0648 1-1 \u0633\u06D2 \u0628\u0631\u0627\u0628\u0631 \u06A9\u0631 \u062F\u06CC\u0627 \u06C1\u06D2\u06D4 \u0627\u0633 \u0633\u06D2 \u0641\u06CC \u0627\u0644\u062D\u0627\u0644 \u0622\u067E \u06A9\u06CC \u0679\u06CC\u0645 \u06A9\u0648 \u0628\u0631\u062A\u0631\u06CC \u0645\u0644 \u06AF\u0626\u06CC \u06C1\u06D2 \u0627\u0648\u0631 \u0627\u0628 \u0648\u06C1 \u06CC\u06C1\u0627\u06BA \u0633\u06D2 \u062F\u0628\u0627\u0624 \u0628\u0691\u06BE\u0627 \u0633\u06A9\u062A\u06CC \u06C1\u06D2\u06D4",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 3,
+        "Failed": true,
+        "Reason": "The response is mostly coherent and relevant, but the statement that Marrow Bay has taken the lead after making it 1-1 creates confusion."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 3,
+        "Failed": true,
+        "Reason": "The response is mostly relevant and includes correct goal details, but it contains an incorrect claim that Marrow Bay now has the lead instead of being level."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is clear and well-structured with good fluency, though not highly sophisticated and with minor awkward wording."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 2,
+        "Failed": true,
+        "Reason": "The response is relevant in format and intent, but contains a key factual/internal error about the match situation."
+      }
+    ]
+  },
+  {
+    "Scenario": "thriller",
+    "Minute": 90,
+    "Moment": "Goal",
+    "Viewer": "Analyst-en",
+    "Language": "en",
+    "Title": "Rashid levels it at 90",
+    "Body": "Stellan Rashid has made it 3-3 for Marrow Bay at 90. The move took 9 passes, with Gideon Okonjo providing the assist on a 0.26 xG chance from 21 m. That goal has taken the game back to level, and now both sides have to find rhythm again.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is coherent, well-structured, and easy to follow, with clear connections between what happened and why it matters."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response fully addresses the prompt with accurate, relevant match-event details and adds tactical/statistical context, though it is slightly wordy for an on-screen card."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is well-written, coherent, and grammatically sound, with varied but not exceptional language."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, relevant, and complete for a short tactical on-screen card, with only a minor inferred flourish at the end."
+      }
+    ]
+  },
+  {
+    "Scenario": "thriller",
+    "Minute": 90,
+    "Moment": "Goal",
+    "Viewer": "Casual-en-Home",
+    "Language": "en",
+    "Title": "Marrow Bay have equalised",
+    "Body": "Stellan Rashid has made it 3-3 for Marrow Bay at 90. For Halden Forge, that means the match is level again and they need to find another response fast.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response fully addresses what happened and why it matters in a short, relevant format."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Clear, coherent, and mostly grammatically correct, with adequate vocabulary and only minor issues."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is clear, relevant, and well-organized for an on-screen match card, though it is simple rather than exceptionally polished."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 5,
+        "Failed": false,
+        "Reason": "The response is accurate, relevant, and directly addresses what happened and why it matters, with only minor omitted context details."
+      }
+    ]
+  },
+  {
+    "Scenario": "thriller",
+    "Minute": 90,
+    "Moment": "Goal",
+    "Viewer": "Casual-ur-Away",
+    "Language": "ur",
+    "Title": "Rashid \u0646\u06D2 Marrow Bay \u06A9\u0648 \u0628\u0631\u0627\u0628\u0631 \u06A9\u0631 \u062F\u06CC\u0627",
+    "Body": "Stellan Rashid \u0646\u06D2 Marrow Bay \u06A9\u06D2 \u0644\u06CC\u06D2 \u0628\u0631\u0627\u0628\u0631\u06CC \u06A9\u0631 \u062F\u06CC \u06C1\u06D2\u060C \u0627\u0648\u0631 \u0645\u06CC\u0686 3-3 \u067E\u0631 \u0648\u0627\u067E\u0633 \u0622 \u06AF\u06CC\u0627 \u06C1\u06D2\u06D4 \u0627\u0633 \u06A9\u06D2 \u0633\u0627\u062A\u06BE \u0622\u067E \u06A9\u06CC \u0679\u06CC\u0645 \u067E\u06BE\u0631 \u0633\u06D2 \u0645\u0642\u0627\u0628\u0644\u06D2 \u0645\u06CC\u06BA \u0622 \u06AF\u0626\u06CC \u06C1\u06D2\u060C \u0627\u0648\u0631 \u0627\u0628 \u062F\u0648\u0646\u0648\u06BA \u0679\u06CC\u0645\u0648\u06BA \u06A9\u0648 \u0627\u06AF\u0644\u0627 \u0628\u0691\u0627 \u0644\u0645\u062D\u06C1 \u062A\u0644\u0627\u0634 \u06A9\u0631\u0646\u0627 \u06C1\u0648\u06AF\u0627\u06D4",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is clear, relevant, and well-structured, with a smooth explanation of both the goal and its significance."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Well-written and clear Urdu with good coherence, though not especially sophisticated or flawless."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is mostly accurate and relevant, but includes a small unsupported assumption about \u201Cyour team.\u201D"
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is relevant, accurate in form, and covers what happened and why it matters, with only minor omissions/awkwardness."
+      }
+    ]
+  },
+  {
+    "Scenario": "thriller",
+    "Minute": 91,
+    "Moment": "FullTime",
+    "Viewer": "Analyst-en",
+    "Language": "en",
+    "Title": "Late Marrow Bay Goal Seals Draw",
+    "Body": "Halden Forge 3-3 Marrow Bay: the turning point was Stellan Rashid\u2019s 90-minute equaliser, which turned Halden Forge\u2019s 57% possession, 12 shots and 2.86 xG into only a draw. At 10, Viktor Esposito put Halden Forge 1-0 up from Dario Teodor\u2019s assist after Yannick Delacroix won it by tackle in the middle third, the move taking 13 s and carrying 0.41 xG. Marrow Bay levelled at 22 through Umar Strand from Bastian Rautio\u2019s assist, then went 1-2 up at 41 when Noah Fenwick finished another Rautio supply from 21 m. Halden Forge responded at 48, Lorcan Lanzini making it 2-2 from Emre Kowal\u2019s assist, before Kowal himself completed an 8-pass move at 67 to make it 3-2. But at 90, Gideon Okonjo set up Rashid for the 3-3 goal, Marrow Bay\u2019s 10 shots and 2.01 xG proving enough to leave the match level.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Well-written and coherent, with strong vocabulary and structure, but minor phrasing issues prevent it from being exceptional."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is coherent, chronological, and relevant, with clear connections between match events, but it lacks a more developed tactical explanation to reach the highest level."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is accurate-looking, concise, and relevant, but it only partially satisfies the \u201Ctactically minded\u201D aspect beyond basic stats and match flow."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is accurate and well grounded in the context, but slightly incomplete tactically for the query\u2019s \u201Cwhat happened and why\u201D requirement."
+      }
+    ]
+  },
+  {
+    "Scenario": "thriller",
+    "Minute": 91,
+    "Moment": "FullTime",
+    "Viewer": "Casual-en-Home",
+    "Language": "en",
+    "Title": "Late Rashid Strike Denies Forge",
+    "Body": "Halden Forge and Marrow Bay finish 3-3 after Stellan Rashid\u2019s late leveller turned a Forge win into a wild draw. Viktor Esposito put Forge ahead, Lorcan Lanzini had a big chance saved before later pulling them level, Viktor Esposito was denied again, Emre Kowal put Forge back in front, and Rashid\u2019s final blow means Halden Forge let the upper hand slip.",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The recap is clear and relevant, with understandable progression, but it is slightly crowded and lacks fuller explanation of \u201Cwhy it went that way.\u201D"
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The writing is clear, polished, and well-structured overall, with only minor issues in flow and sentence variety."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response directly answers the query with a short, readable recap and key match events, but it only lightly explains why the result happened."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The recap is accurate and relevant but incomplete, especially for \u201Cwhat happened and why it went that way.\u201D"
+      }
+    ]
+  },
+  {
+    "Scenario": "thriller",
+    "Minute": 91,
+    "Moment": "FullTime",
+    "Viewer": "Casual-ur-Away",
+    "Language": "ur",
+    "Title": "Marrow Bay \u06A9\u06CC \u062F\u06CC\u0631 \u0633\u06D2 \u0648\u0627\u067E\u0633\u06CC",
+    "Body": "Halden Forge 3-3 Marrow Bay\u060C \u0627\u0635\u0644 \u0645\u0648\u0691 Stellan Rashid \u06A9\u0627 \u0622\u062E\u0631\u06CC \u06AF\u0648\u0644 \u062A\u06BE\u0627 \u062C\u0633 \u0646\u06D2 Marrow Bay \u06A9\u0648 \u0632\u0628\u0631\u062F\u0633\u062A \u0627\u0646\u062F\u0627\u0632 \u0645\u06CC\u06BA \u0645\u06CC\u0686 \u0645\u06CC\u06BA \u0648\u0627\u067E\u0633 \u06A9\u06BE\u06CC\u0646\u0686 \u0644\u06CC\u0627\u06D4 \u067E\u06C1\u0644\u06D2 Viktor Esposito \u0646\u06D2 Halden Forge \u06A9\u0648 \u0622\u06AF\u06D2 \u06A9\u06CC\u0627\u060C \u067E\u06BE\u0631 Umar Strand \u0646\u06D2 Marrow Bay \u06A9\u0648 \u0628\u0631\u0627\u0628\u0631 \u06A9\u06CC\u0627\u060C Noah Fenwick \u0646\u06D2 \u0628\u0631\u062A\u0631\u06CC \u062F\u0644\u0627\u0626\u06CC\u060C Kai Baptiste \u06A9\u0627 \u0628\u0691\u0627 \u0645\u0648\u0642\u0639 \u0628\u0627\u06C1\u0631 \u06AF\u06CC\u0627\u060C \u0627\u0648\u0631 Lorcan Lanzini \u0646\u06D2 Halden Forge \u06A9\u0648 \u067E\u06BE\u0631 \u0628\u0631\u0627\u0628\u0631 \u06A9\u0631 \u062F\u06CC\u0627\u06D4 \u0622\u062E\u0631 \u0645\u06CC\u06BA Stellan Rashid \u0646\u06D2 Marrow Bay \u06A9\u06D2 \u0644\u06CC\u06D2 \u062C\u0627\u0646 \u0628\u0686\u0627\u0646\u06D2 \u0648\u0627\u0644\u0627 \u06AF\u0648\u0644 \u06A9\u06CC\u0627\u060C \u0627\u0633 \u0644\u06CC\u06D2 \u0622\u067E \u06A9\u06CC \u0679\u06CC\u0645 \u06C1\u0627\u0631\u06CC \u0646\u06C1\u06CC\u06BA \u0645\u06AF\u0631 \u062C\u06CC\u062A \u0628\u06BE\u06CC \u06C1\u0627\u062A\u06BE \u0633\u06D2 \u0646\u06A9\u0644 \u06AF\u0626\u06CC\u06D4",
+    "VerifierRejections": 0,
+    "Fallback": false,
+    "Metrics": [
+      {
+        "Name": "Fact trace",
+        "Value": 1,
+        "Failed": false,
+        "Reason": "Every number and player name traces to a computed fact."
+      },
+      {
+        "Name": "Fluency",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is fluent, well-structured, and understandable, with only minor awkwardness that does not affect clarity."
+      },
+      {
+        "Name": "Coherence",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is coherent, well-ordered, and understandable for a casual fan, but not exceptionally developed in explaining the reasons behind the result."
+      },
+      {
+        "Name": "Relevance",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "The response is relevant and mostly complete for a casual full-time recap, but the \u201Cwhy it went that way\u201D part is somewhat brief and could use slightly more explanation."
+      },
+      {
+        "Name": "Groundedness",
+        "Value": 4,
+        "Failed": false,
+        "Reason": "Mostly accurate and relevant, but incomplete as a full-time recap because it misses a major goal and gives limited explanation of why the match unfolded that way."
+      }
+    ]
+  }
+]

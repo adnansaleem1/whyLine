@@ -1,0 +1,67 @@
+@* Explained momentum: who is on top each minute, with the reasons pinned to the swings. *@
+
+<figure class="momentum">
+    <svg viewBox="0 0 @W @H" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Match momentum by minute">
+        <line x1="@Left" y1="@Mid" x2="@(W - 4)" y2="@Mid" class="axis" />
+        <line x1="@X(45)" y1="10" x2="@X(45)" y2="@(H - 10)" class="half" />
+        <text x="@X(45)" y="9" class="tick" text-anchor="middle">HT</text>
+        @foreach (var tick in new[] { 15, 30, 60, 75, 90 })
+        {
+            <g><text x="@F(X(tick))" y="@(H - 2)" class="tick" text-anchor="middle">@(tick)'</text></g>
+        }
+        <text x="4" y="22" class="team-label" fill="@Meta.Home.PrimaryColor">@Meta.Home.ShortName</text>
+        <text x="4" y="@(H - 14)" class="team-label" fill="@Meta.Away.PrimaryColor">@Meta.Away.ShortName</text>
+
+        @foreach (var p in Points)
+        {
+            var h = Math.Abs(p.Value) * (Mid - 14);
+            var y = p.Value >= 0 ? Mid - h : Mid;
+            <rect x="@F(X(p.Minute - 1) + 0.6)" y="@F(y)" width="@F(BarW - 1.2)" height="@F(Math.Max(0.5, h))"
+                  fill="@(p.Value >= 0 ? Meta.Home.PrimaryColor : Meta.Away.PrimaryColor)" opacity="@(p.Value >= 0 ? "0.85" : "0.85")" />
+        }
+
+        @foreach (var m in Markers)
+        {
+            var x = X(m.Minute - 0.5);
+            var homeSide = m.Team == TeamSide.Home;
+            <g class="marker marker-@m.Kind.ToString().ToLowerInvariant()">
+                @if (m.Kind == MomentKind.Goal)
+                {
+                    <g>
+                        <circle cx="@F(x)" cy="@(homeSide ? 16 : H - 18)" r="6.5" fill="@(homeSide ? Meta.Home.PrimaryColor : Meta.Away.PrimaryColor)" />
+                        <text x="@F(x)" y="@(homeSide ? 19.5 : H - 14.5)" text-anchor="middle" class="goal-g">G</text>
+                    </g>
+                }
+                else
+                {
+                    <g>
+                        <line x1="@F(x)" y1="12" x2="@F(x)" y2="@(H - 12)" class="swing" />
+                        <text x="@F(x + 3)" y="@(homeSide ? 30 : H - 30)" class="swing-label">@Label(m)</text>
+                    </g>
+                }
+            </g>
+        }
+    </svg>
+    <figcaption>
+        Bars show which team is generating more threat each minute. Yellow lines mark a detected swing or tactical change; the agents explain each one.
+    </figcaption>
+</figure>
+
+@code {
+    [Parameter, EditorRequired] public MatchMetadata Meta { get; set; } = null!;
+    [Parameter] public IReadOnlyList<MomentumPoint> Points { get; set; } = [];
+    [Parameter] public IReadOnlyList<Moment> Markers { get; set; } = [];
+
+    private const double W = 960, H = 170, Left = 40;
+    private const double Mid = H / 2;
+    private static double BarW => (W - Left - 4) / 90.0;
+    private static double X(double minute) => Left + minute * BarW;
+    private static string F(double v) => v.ToString("0.##", CultureInfo.InvariantCulture);
+
+    private string Label(Moment m) => m.Kind switch
+    {
+        MomentKind.MomentumSwing => $"{Meta.TeamOf(m.Team ?? TeamSide.Home).ShortName} take control",
+        MomentKind.TacticalShift => $"{Meta.TeamOf(m.Team ?? TeamSide.Home).ShortName} change shape",
+        _ => m.Kind.ToString()
+    };
+}

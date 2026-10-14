@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Plays every fixture through the Foundry newsroom and scores the published cards with Microsoft.Extensions.AI.Evaluation:
+       groundedness against the computed facts, relevance, coherence, fluency, WhyLine's own fact-trace check and, with
+       -safety, Foundry's content-safety evaluators. See docs/evaluation.md. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>WhyLine.Evaluate</RootNamespace>
+    <UserSecretsId>whyline-web-7d3f</UserSecretsId>
+    <NoWarn>$(NoWarn);AIEVAL001;MEAI001;OPENAI001</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\WhyLine.Core\WhyLine.Core.csproj" />
+    <ProjectReference Include="..\..\src\WhyLine.Agents\WhyLine.Agents.csproj" />
+    <ProjectReference Include="..\..\src\WhyLine.Agents.Foundry\WhyLine.Agents.Foundry.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.AI.Evaluation" Version="10.*-*" />
+    <PackageReference Include="Microsoft.Extensions.AI.Evaluation.Quality" Version="10.*-*" />
+    <PackageReference Include="Microsoft.Extensions.AI.Evaluation.Reporting" Version="10.*-*" />
+    <PackageReference Include="Microsoft.Extensions.AI.Evaluation.Safety" Version="10.*-*" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.*" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.*" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="10.*" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="10.*" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.*" />
+  </ItemGroup>
+</Project>

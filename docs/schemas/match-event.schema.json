@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://whyline.example/schemas/match-event.schema.json",
+  "title": "WhyLine synthetic match event",
+  "type": "object",
+  "required": ["id", "type", "matchSeconds", "period", "start"],
+  "properties": {
+    "id": { "type": "string" },
+    "type": { "enum": ["KickOff", "Pass", "Shot", "Goal", "Tackle", "Interception", "PossessionChange", "Pressure", "TacticalChange", "HalfTime", "FullTime"] },
+    "matchSeconds": { "type": "number" },
+    "period": { "type": "integer", "enum": [1, 2] },
+    "team": { "enum": ["Home", "Away", null] },
+    "playerId": { "type": ["integer", "null"] },
+    "targetPlayerId": { "type": ["integer", "null"], "description": "Intended receiver (passes) or player pressed/tackled." },
+    "start": { "$ref": "#/$defs/vec2" },
+    "end": { "oneOf": [{ "$ref": "#/$defs/vec2" }, { "type": "null" }] },
+    "success": { "type": ["boolean", "null"] },
+    "speed": { "type": ["number", "null"], "description": "Ball speed, m/s." },
+    "distance": { "type": ["number", "null"], "description": "Metres." },
+    "pressureMeters": { "type": ["number", "null"], "description": "Distance to nearest opponent at the action." },
+    "receiverPressureMeters": { "type": ["number", "null"] },
+    "opponentsBypassed": { "type": ["integer", "null"] },
+    "xg": { "type": ["number", "null"] },
+    "note": { "type": ["string", "null"] }
+  },
+  "$defs": {
+    "vec2": { "type": "object", "properties": { "x": { "type": "number" }, "y": { "type": "number" } }, "required": ["x", "y"] }
+  }
+}

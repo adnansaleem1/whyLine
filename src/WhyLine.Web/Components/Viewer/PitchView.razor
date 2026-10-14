@@ -1,0 +1,135 @@
+@* Top-down pitch rendered from tracking positions. Overlays are drawn from timed cues; evidence is drawn as the "why line". *@
+
+<svg class="pitch" viewBox="-4 -4 113 76" role="img" aria-label="Pitch view, minute @((int)((Frame?.MatchSeconds ?? 0) / 60) + 1)">
+    <defs>
+        <pattern id="turf-@Id" width="10.5" height="68" patternUnits="userSpaceOnUse">
+            <rect width="5.25" height="68" fill="var(--turf-a)" />
+            <rect x="5.25" width="5.25" height="68" fill="var(--turf-b)" />
+        </pattern>
+        <marker id="arrow-@Id" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="3" markerHeight="3" orient="auto-start-reverse">
+            <path d="M0,0 L6,3 L0,6 z" fill="var(--why)" />
+        </marker>
+    </defs>
+
+    <rect x="-4" y="-4" width="113" height="76" fill="var(--turf-edge)" />
+    <rect x="0" y="0" width="105" height="68" fill="url(#turf-@Id)" />
+
+    <g class="lines">
+        <rect x="0" y="0" width="105" height="68" />
+        <line x1="52.5" y1="0" x2="52.5" y2="68" />
+        <circle cx="52.5" cy="34" r="9.15" />
+        <circle cx="52.5" cy="34" r="0.4" class="spot" />
+        <rect x="0" y="13.84" width="16.5" height="40.32" />
+        <rect x="88.5" y="13.84" width="16.5" height="40.32" />
+        <rect x="0" y="24.84" width="5.5" height="18.32" />
+        <rect x="99.5" y="24.84" width="5.5" height="18.32" />
+        <circle cx="11" cy="34" r="0.4" class="spot" />
+        <circle cx="94" cy="34" r="0.4" class="spot" />
+        <rect x="-1.6" y="30.34" width="1.6" height="7.32" class="goal" />
+        <rect x="105" y="30.34" width="1.6" height="7.32" class="goal" />
+    </g>
+
+    @if (Highlight.Count > 0)
+    {
+        <g class="why-line">
+            @{ Vec2? previous = null; }
+            @foreach (var e in Highlight.OrderBy(e => e.MatchSeconds))
+            {
+                var prev = previous;
+                previous = e.End ?? e.Start;
+                <g class="evidence">
+                    @if (prev is { } p0 && e.Type != MatchEventType.Pressure)
+                    {
+                        <line x1="@F(p0.X)" y1="@F(Y(p0.Y))" x2="@F(e.Start.X)" y2="@F(Y(e.Start.Y))" class="link" />
+                    }
+                    @if (e.End is { } end)
+                    {
+                        <line x1="@F(e.Start.X)" y1="@F(Y(e.Start.Y))" x2="@F(end.X)" y2="@F(Y(end.Y))" marker-end="url(#arrow-@Id)" />
+                    }
+                    <circle cx="@F(e.Start.X)" cy="@F(Y(e.Start.Y))" r="1.1" />
+                    <text x="@F(e.Start.X + 1.5)" y="@F(Y(e.Start.Y) - 1.2)">@Short(e)</text>
+                </g>
+            }
+        </g>
+    }
+
+    @if (Frame is not null)
+    {
+        @for (var i = 0; i < Frame.Players.Length && i < Players.Count; i++)
+        {
+            var player = Players[i];
+            var pos = Frame.Players[i];
+            var focus = player.Id == FocusPlayerId;
+            var color = player.Team == TeamSide.Home ? Meta.Home.PrimaryColor : Meta.Away.PrimaryColor;
+            <g class="player @(focus ? "focus" : "")">
+                @if (focus)
+                {
+                    <circle cx="@F(pos.X)" cy="@F(Y(pos.Y))" r="2.6" class="focus-ring" />
+                }
+                <circle cx="@F(pos.X)" cy="@F(Y(pos.Y))" r="1.45" fill="@color" />
+                <text x="@F(pos.X)" y="@F(Y(pos.Y) + 0.5)" class="num">@player.Number</text>
+            </g>
+        }
+
+        @if (Frame.BallOwnerIndex is { } owner && owner < Players.Count)
+        {
+            var carrier = Players[owner];
+            var p = Frame.Players[owner];
+            <g class="tag">
+                <rect x="@F(p.X - TagWidth(carrier.ShortName) / 2)" y="@F(Y(p.Y) - 6.2)" width="@F(TagWidth(carrier.ShortName))" height="3.2" rx="0.6" />
+                <text x="@F(p.X)" y="@F(Y(p.Y) - 3.9)">@carrier.ShortName</text>
+            </g>
+        }
+
+        <circle cx="@F(Frame.Ball.X)" cy="@F(Y(Frame.Ball.Y))" r="0.75" class="ball" />
+    }
+
+    @foreach (var badge in Badges)
+    {
+        if (badge.Anchor is not { } a) continue;
+        var text = badge.Type == CueType.ScoreBug ? badge.Title : $"{badge.Title}  {badge.Body}";
+        var width = Math.Min(60, 1.1 * text.Length + 2);
+        var x = Math.Clamp(a.X - width / 2, -3, 108 - width);
+        var y = Math.Clamp(Y(a.Y) + 3, -3, 68);
+        <g class="badge badge-@badge.Type.ToString().ToLowerInvariant()">
+            <rect x="@F(x)" y="@F(y)" width="@F(width)" height="3.6" rx="0.5" />
+            <text x="@F(x + 1)" y="@F(y + 2.55)">@text</text>
+        </g>
+    }
+</svg>
+
+@code {
+    [Parameter, EditorRequired] public MatchMetadata Meta { get; set; } = null!;
+    [Parameter] public TrackingFrame? Frame { get; set; }
+    [Parameter] public int? FocusPlayerId { get; set; }
+    [Parameter] public IReadOnlyList<OverlayCue> Badges { get; set; } = [];
+    [Parameter] public IReadOnlyList<MatchEvent> Highlight { get; set; } = [];
+
+    private readonly string Id = Guid.NewGuid().ToString("N")[..6];
+    private IReadOnlyList<Player> Players => _players ??= Meta.Players.OrderBy(p => p.Id).ToArray();
+    private IReadOnlyList<Player>? _players;
+    private MatchMetadata? _lastMeta;
+
+    protected override void OnParametersSet()
+    {
+        if (!ReferenceEquals(_lastMeta, Meta)) _players = null;
+        _lastMeta = Meta;
+    }
+
+    // Pitch Y grows downwards in SVG; flip so the Home team's left is at the top of the screen.
+    private static double Y(double y) => Pitch.Width - y;
+    private static string F(double v) => v.ToString("0.##", CultureInfo.InvariantCulture);
+    private static double TagWidth(string name) => name.Length * 1.45 + 2;
+
+    private string Short(MatchEvent e) => e.Type switch
+    {
+        MatchEventType.Pass => $"{e.Minute}' pass",
+        MatchEventType.Tackle => $"{e.Minute}' tackle",
+        MatchEventType.Interception => $"{e.Minute}' regain",
+        MatchEventType.Shot => $"{e.Minute}' shot",
+        MatchEventType.Goal => $"{e.Minute}' goal",
+        MatchEventType.TacticalChange => $"{e.Minute}' switch",
+        MatchEventType.Pressure => "",
+        _ => $"{e.Minute}'"
+    };
+}

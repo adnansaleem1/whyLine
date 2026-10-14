@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>WhyLine.Agents.Workflows</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WhyLine.Agents\WhyLine.Agents.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Microsoft Agent Framework workflows: executors, edges, events, in-process execution -->
+    <PackageReference Include="Microsoft.Agents.AI.Workflows" Version="1.*" />
+  </ItemGroup>
+</Project>

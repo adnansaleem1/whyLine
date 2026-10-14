@@ -1,0 +1,15 @@
+bin/
+obj/
+.vs/
+.vscode/
+*.user
+*.suo
+appsettings.Local.json
+TestResults/
+logs/
+eval/store/
+eval/report.html
+.azure/
+**/secrets.json
+publish-github.cmd
+publish-commit-message.txt

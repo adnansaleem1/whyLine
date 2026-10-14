@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://whyline.example/schemas/overlay-cue.schema.json",
+  "title": "WhyLine overlay cue",
+  "description": "A timed, machine-readable overlay instruction. Clients must not display a cue before their own playback clock reaches matchSeconds (spoiler-safe sync).",
+  "type": "object",
+  "required": ["id", "type", "matchSeconds", "title", "source", "verified"],
+  "properties": {
+    "id": { "type": "string" },
+    "type": { "enum": ["PlayerTag", "SpeedBadge", "DistanceBadge", "PassQuality", "ShotSpeed", "ScoreBug", "InsightCard", "MomentumAnnotation", "Recap"] },
+    "matchSeconds": { "type": "number", "minimum": 0, "description": "Match-clock time the cue belongs to." },
+    "durationSeconds": { "type": "number", "minimum": 0 },
+    "priority": { "type": "integer", "minimum": 1, "maximum": 3 },
+    "profileKey": { "type": ["string", "null"], "description": "Null = every viewer. Otherwise Persona|Language|FavouriteTeam|FocusPlayerId." },
+    "language": { "type": "string", "examples": ["en", "ur", "es", "ar"] },
+    "title": { "type": "string" },
+    "body": { "type": "string" },
+    "playerId": { "type": ["integer", "null"] },
+    "team": { "enum": ["Home", "Away", null] },
+    "anchor": {
+      "type": ["object", "null"],
+      "description": "Pitch position in metres (x 0..105 towards the Home attack, y 0..68).",
+      "properties": { "x": { "type": "number" }, "y": { "type": "number" } }
+    },
+    "citations": {
+      "type": "array",
+      "description": "Each sentence of the body with the event ids that prove it.",
+      "items": {
+        "type": "object",
+        "required": ["text", "eventIds"],
+        "properties": { "text": { "type": "string" }, "eventIds": { "type": "array", "items": { "type": "string" } } }
+      }
+    },
+    "evidenceEventIds": { "type": "array", "items": { "type": "string" } },
+    "momentId": { "type": ["string", "null"] },
+    "momentKind": { "type": ["string", "null"] },
+    "source": { "enum": ["fast-path", "agents"] },
+    "verified": { "type": "boolean" },
+    "generationMs": { "type": ["number", "null"] }
+  }
+}

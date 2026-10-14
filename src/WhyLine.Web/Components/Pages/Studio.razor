@@ -1,0 +1,130 @@
+@page "/"
+@implements IDisposable
+@inject LiveMatch Live
+@inject INewsroom Newsroom
+
+<PageTitle>WhyLine · @Live.Metadata.Home.ShortName @_status.HomeScore-@_status.AwayScore @Live.Metadata.Away.ShortName</PageTitle>
+
+<header class="masthead">
+    <div class="brand">
+        <h1>WhyLine</h1>
+        <p>Not just what happened. Why it mattered, and how we know.</p>
+        <p class="fixture-story">@Live.Scenario.Story</p>
+    </div>
+
+    <div class="scorebug" aria-live="polite">
+        <span class="team" style="--c:@Live.Metadata.Home.PrimaryColor">@Live.Metadata.Home.Name</span>
+        <span class="score">@_status.HomeScore<i>–</i>@_status.AwayScore</span>
+        <span class="team away" style="--c:@Live.Metadata.Away.PrimaryColor">@Live.Metadata.Away.Name</span>
+        <span class="clock">@Clock(_status.Clock)</span>
+        <span class="period">@(_status.Finished ? "Full time" : _status.Period == 1 ? "First half" : "Second half")</span>
+    </div>
+
+    <div class="transport">
+        <label class="fixture" title="@Live.Scenario.Story">
+            <span class="sr-only">Match</span>
+            <select value="@Live.Scenario.Id" @onchange="LoadMatch">
+                @foreach (var s in MatchCatalog.All)
+                {
+                    <option value="@s.Id">@s.Title</option>
+                }
+            </select>
+        </label>
+        <button type="button" class="primary" @onclick="Toggle">@(_status.Running ? "Pause" : _status.Finished ? "Finished" : "Play")</button>
+        <label>
+            <span class="sr-only">Replay speed</span>
+            <select value="@_status.Speed.ToString(CultureInfo.InvariantCulture)" @onchange="SetSpeed">
+                @foreach (var s in new[] { 1, 5, 10, 15, 20, 30, 45 })
+                {
+                    <option value="@s">@(s)× speed</option>
+                }
+            </select>
+        </label>
+        <button type="button" @onclick="Restart">Restart match</button>
+    </div>
+</header>
+
+<main class="studio">
+    <div class="viewers">
+        <ViewerPanel Name="Viewer A" InitialPersona="Persona.Analyst" InitialLanguage="en" />
+        <ViewerPanel Name="Viewer B" InitialPersona="Persona.Casual" InitialLanguage="ur" InitialFavourite="TeamSide.Away" InitialDelay="30" />
+    </div>
+
+    <section class="studio-desk" aria-label="Studio desk (live)">
+        <div class="desk-main">
+            <div class="desk-head">
+                <h2>Studio desk</h2>
+                <span>Live, no delay</span>
+            </div>
+            <MomentumChart Meta="Live.Metadata" Points="_snapshot.Momentum" Markers="_markers" />
+            <dl class="numbers">
+                <div><dt>Possession</dt><dd>@Pct(_snapshot.Home.PossessionPct) <small>vs</small> @Pct(_snapshot.Away.PossessionPct)</dd></div>
+                <div><dt>xG</dt><dd>@_snapshot.Home.Xg.ToString("0.00") <small>vs</small> @_snapshot.Away.Xg.ToString("0.00")</dd></div>
+                <div><dt>Shots</dt><dd>@_snapshot.Home.Shots <small>vs</small> @_snapshot.Away.Shots</dd></div>
+                <div><dt>Pass accuracy</dt><dd>@Pct(_snapshot.Home.PassAccuracyPct) <small>vs</small> @Pct(_snapshot.Away.PassAccuracyPct)</dd></div>
+                <div><dt>Last five minutes</dt><dd class="state state-@_snapshot.ControlLabel.ToLowerInvariant()">@_snapshot.ControlLabel <small>@((_snapshot.ControlIndex * 100).ToString("0"))/100</small></dd></div>
+                <div title="Passes and ball speed derived from player and ball positions only, scored against the event feed">
+                    <dt>Auto-eventing from tracking</dt>
+                    <dd>@_auto.RecallPct.ToString("0")% <small>recall</small> @_auto.PrecisionPct.ToString("0")% <small>precision</small> ±@_auto.MeanSpeedErrorKmh.ToString("0.0") <small>km/h</small></dd>
+                </div>
+            </dl>
+        </div>
+        <AgentTracePanel Traces="_traces" Mode="@Live.AgentMode" Orchestration="@Newsroom.Orchestration" />
+    </section>
+</main>
+
+@code {
+    private Timer? _timer;
+    private LiveStatus _status = null!;
+    private MatchSnapshot _snapshot = null!;
+    private IReadOnlyList<Moment> _markers = [];
+    private IReadOnlyList<AgentTrace> _traces = [];
+    private AutoEventingStats _auto = new(0, 0, 0, 0, 0, 0);
+
+    protected override void OnInitialized()
+    {
+        Refresh();
+        _timer = new Timer(_ => InvokeAsync(() =>
+        {
+            Refresh();
+            StateHasChanged();
+        }), null, 250, 250);
+    }
+
+    private void Refresh()
+    {
+        _status = Live.Status();
+        _snapshot = Live.LatestSnapshot();
+        _markers = Live.MomentsUpTo(_status.Clock)
+            .Where(m => m.Kind is MomentKind.Goal or MomentKind.MomentumSwing or MomentKind.TacticalShift).ToArray();
+        _traces = Live.RecentTraces(60);
+        _auto = Live.AutoEventing();
+    }
+
+    private void Toggle() => Live.SetRunning(!_status.Running && !_status.Finished);
+
+    private void Restart()
+    {
+        Live.Reset(Live.Seed);
+        Live.SetRunning(true);
+    }
+
+    private void LoadMatch(ChangeEventArgs e)
+    {
+        if (e.Value?.ToString() is not { Length: > 0 } id || id == Live.Scenario.Id) return;
+        Live.Reset(Live.Seed, id);
+        Live.SetRunning(true);
+        Refresh();
+    }
+
+    private void SetSpeed(ChangeEventArgs e)
+    {
+        if (double.TryParse(e.Value?.ToString(), NumberStyles.Float, CultureInfo.InvariantCulture, out var s)) Live.SetSpeed(s);
+    }
+
+    private static string Pct(double v) => $"{v:0}%";
+
+    private static string Clock(double seconds) => $"{(int)(seconds / 60):00}:{(int)(seconds % 60):00}";
+
+    public void Dispose() => _timer?.Dispose();
+}

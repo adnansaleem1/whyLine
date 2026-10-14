@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/WhyLine.Core/WhyLine.Core.csproj" />
+    <Project Path="src/WhyLine.Agents/WhyLine.Agents.csproj" />
+    <Project Path="src/WhyLine.Agents.Foundry/WhyLine.Agents.Foundry.csproj" />
+    <Project Path="src/WhyLine.Agents.Workflows/WhyLine.Agents.Workflows.csproj" />
+    <Project Path="src/WhyLine.Web/WhyLine.Web.csproj" />
+  </Folder>
+  <Folder Name="/tools/">
+    <Project Path="tools/WhyLine.Evaluate/WhyLine.Evaluate.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/WhyLine.Tests/WhyLine.Tests.csproj" />
+  </Folder>
+</Solution>
