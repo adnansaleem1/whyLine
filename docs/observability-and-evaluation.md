@@ -45,7 +45,7 @@ Code: `NewsroomTelemetry` (spans and metrics), `FoundryAgentFactory` (`UseOpenTe
 "Telemetry": { "ApplicationInsightsConnectionString": "InstrumentationKey=...;IngestionEndpoint=..." }
 ```
 
-4. Run `run-foundry.cmd`. The startup log says `Telemetry: Application Insights`. Traces appear in Foundry → Tracing
+4. Run the app (`dotnet run --project src/WhyLine.Web --launch-profile "WhyLine (Foundry agents)"`). The startup log says `Telemetry: Application Insights`. Traces appear in Foundry → Tracing
    and in Application Insights → Transaction search within a couple of minutes.
 
 Prompts and completions are recorded on the model-call spans (`Agents:Foundry:RecordContentInTraces`, on by default
@@ -62,9 +62,16 @@ token is printed in the container log). Both exporters can be on at once.
 
 ## Evaluation
 
-`run-eval.cmd` plays every fixture, runs the key moments (all goals, the most important other moments and full time)
+```bash
+dotnet run --project tools/WhyLine.Evaluate                                      # all fixtures, several minutes
+dotnet run --project tools/WhyLine.Evaluate -- --matches comeback --moments 2    # one fixture, about two minutes
+dotnet tool restore
+dotnet tool run aieval report --path eval/store --output eval/report.html        # HTML report
+```
+
+The evaluation plays every fixture, runs the key moments (all goals, the most important other moments and full time)
 through the Foundry newsroom for three viewers (English analyst, English casual fan, Urdu casual fan), then scores every
-published card. `run-eval-quick.cmd` does one fixture in about two minutes.
+published card. Options: `--matches`, `--moments`, `--safety`, `--judge <deployment>` and `--out <folder>`.
 
 | Metric | Source | What it checks |
 |---|---|---|

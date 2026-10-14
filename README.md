@@ -42,7 +42,8 @@ dotnet test tests/WhyLine.Tests
 dotnet run --project src/WhyLine.Web
 ```
 
-On Windows you can double-click `verify.cmd` instead (build, test and run; output in `logs/`).
+In Visual Studio or Rider, open `WhyLine.slnx` and pick a launch profile: **WhyLine (Template agents)** (offline),
+**WhyLine (Foundry agents)** or **WhyLine (Foundry agents, Entra ID)**.
 
 Open **http://localhost:5080**. The match kicks off automatically at 15× speed. Then try:
 
@@ -58,7 +59,8 @@ Open **http://localhost:5080**. The match kicks off automatically at 15× speed.
    Arabic), favourite club, focus player, stream delay. New settings apply from the next moment.
 6. **Watch the Agent newsroom panel** (bottom right): Director decisions, Analyst briefs, drafts, Verifier approvals and
    rejections, fallbacks and publish times, live.
-7. **Speak insights** reads cards aloud (browser speech), the basis of the Audio Description persona.
+7. **Speak insights** reads cards aloud with **Azure AI Speech** neural voices (for example `ur-PK-AsadNeural` for
+   Urdu), the basis of the Audio Description persona. With no key configured (as in this quick start), the browser's voices are used.
 
 Useful endpoints while it runs: `GET /api/agents` (every agent's role, contract and system message),
 `GET /api/traces`, `GET /api/match/moments`, `GET /api/autoeventing`.
@@ -78,7 +80,8 @@ Most match AI shows *what* happened (a stat, a highlight). WhyLine is built arou
 | **Spoiler-safe sync** | Each insight carries the match-clock time it belongs to. Every viewer receives it only when *their* stream reaches that moment, whatever their delay. Catch-me-up never reveals what a viewer hasn't seen. |
 
 Plus: four personas (including **Audio Description** for blind and low-vision fans, which says where on the pitch the
-action is before what happened), four languages with local commentary styles and right-to-left rendering, half-time and
+action is before what happened), four languages with local commentary styles and right-to-left rendering, Azure AI Speech
+neural voices in every language (a calmer, slower voice for Audio Description), half-time and
 full-time recaps, and a REST/SignalR feed so a broadcaster's graphics system can render the same cues.
 
 ---
@@ -158,13 +161,14 @@ the next moment.
 | `Microsoft.Agents.AI.Workflows` | The newsroom graph: executors, typed edges, conditional routing, workflow output events. |
 | Agent Framework OpenTelemetry | `UseOpenTelemetry` on every agent and `WithOpenTelemetry` on the workflow: GenAI-convention spans (model, tokens, prompts) inside WhyLine's own per-moment trace, exported to Application Insights and Foundry Tracing. |
 | `Microsoft.Extensions.AI.Evaluation` | The evaluation harness: Groundedness, Relevance, Coherence and Fluency evaluators judged by the Foundry deployment, Foundry's content-safety evaluation service (`--safety`) and a custom fact-trace evaluator. |
+| Azure AI Speech | Neural text-to-speech through the Foundry resource (a multi-service Azure AI resource, so the same key works): a commentary voice and an Audio Description voice per language, SSML with per-voice speaking rate, audio streamed to the browser. Region detected automatically. |
 | Azure Developer CLI templates | Bicep for Container Apps with a managed identity that signs in to the Foundry project, and an Application Insights connection on the project (optional, see below). |
 
 ---
 
 ## Evaluation results
 
-`run-eval.cmd` plays all five fixtures, runs the key moments (every goal, the most important other moments and full
+The evaluation ([how to run it](#run-with-your-own-foundry-project)) plays all five fixtures, runs the key moments (every goal, the most important other moments and full
 time) through the **Foundry** newsroom for three viewers (English analyst, English casual fan, Urdu casual fan), and
 scores every published card. Latest full run: **60 cards**, agents `gpt-5.5` / `gpt-5.4-mini`, judge `gpt-5.5`.
 
@@ -209,30 +213,56 @@ With neither set, telemetry is off. Details: [docs/observability-and-evaluation.
 
 ## Run with your own Foundry project
 
-You need a Microsoft Foundry project with two chat model deployments (for example `gpt-5.5` and `gpt-5.4-mini`). Keep
-credentials out of the repository: use .NET user secrets, which live in your user profile, not in the project folder.
+You need a Microsoft Foundry project with two chat model deployments (for example `gpt-5.5` and `gpt-5.4-mini`). Put your
+settings in `src/WhyLine.Web/appsettings.Local.json`, which is git-ignored and kept out of the container image:
 
 ```bash
-cd src/WhyLine.Web
-dotnet user-secrets set "Agents:Foundry:ProjectEndpoint" "https://<resource>.services.ai.azure.com/api/projects/<project>"
-dotnet user-secrets set "Agents:Foundry:ReasoningModel" "gpt-5.5"
-dotnet user-secrets set "Agents:Foundry:FastModel" "gpt-5.4-mini"
-
-# Either sign in with Microsoft Entra ID (recommended; needs the Azure AI User role on the Foundry resource)...
-az login
-# ...or use an API key (Foundry portal → your resource → Keys and Endpoint):
-dotnet user-secrets set "Agents:Foundry:ApiKey" "<key>"
+cp src/WhyLine.Web/appsettings.Local.example.json src/WhyLine.Web/appsettings.Local.json
 ```
 
-Then run with the Foundry launch profile:
+Fill in the project endpoint and model deployment names. For the API key (Foundry portal → your resource → Keys and
+Endpoint), either fill in `ApiKey` or remove that line and sign in with Microsoft Entra ID (`az login`; needs the Azure AI
+User role on the Foundry resource). .NET user secrets work too (`dotnet user-secrets set "Agents:Foundry:ApiKey" "<key>"`
+in `src/WhyLine.Web`).
+
+Then run with a Foundry launch profile:
 
 ```bash
 dotnet run --project src/WhyLine.Web --launch-profile "WhyLine (Foundry agents)"
+dotnet run --project src/WhyLine.Web --launch-profile "WhyLine (Foundry agents, Entra ID)"   # forces Entra ID
 ```
 
-On Windows: `run-foundry.cmd` (API key or Entra ID, whichever is configured) or `run-foundry-entra.cmd` (forces Entra
-ID). The newsroom panel header switches to **Microsoft Foundry agents · Agent Framework workflow**, and the startup log
-shows the auth mode. `run-eval.cmd` runs the evaluation (several minutes; `run-eval-quick.cmd` does one fixture).
+The newsroom panel header switches to **Microsoft Foundry agents · Agent Framework workflow**, and the startup log
+shows the auth mode and the voice (`Speech: Azure AI Speech (<region>)`).
+
+Run the evaluation (calls your Foundry models; a full run takes several minutes):
+
+```bash
+dotnet run --project tools/WhyLine.Evaluate                                      # all fixtures
+dotnet run --project tools/WhyLine.Evaluate -- --matches comeback --moments 2    # quick: one fixture
+dotnet tool restore
+dotnet tool run aieval report --path eval/store --output eval/report.html        # HTML report
+```
+
+Results go to `eval/summary.md` and `eval/results.json`; add `--safety` for Foundry's content-safety evaluation.
+
+### Voices
+
+With **Speak insights** on, cards are read aloud with Azure AI Speech neural voices, one per language and persona (for
+example `ur-PK-AsadNeural` for Urdu). WhyLine reuses the Foundry API key, since a Foundry resource is a multi-service
+Azure AI resource, and detects its region; set `Speech:Region` if detection fails. Without a key, or if a call fails,
+the browser's own voices are used. The label under the button shows which voice is speaking (for example
+*Azure AI Speech · ur-PK-AsadNeural*). Speech works in either agent mode; it only needs a key.
+
+| Language | Commentary voice (Analyst, Casual, Player Focus) | Audio Description voice |
+|---|---|---|
+| English | `en-GB-RyanNeural`, +8% | `en-GB-SoniaNeural`, −5% |
+| Urdu | `ur-PK-AsadNeural`, +5% | `ur-PK-UzmaNeural`, −5% |
+| Spanish | `es-MX-JorgeNeural`, +8% | `es-MX-DaliaNeural`, −5% |
+| Arabic | `ar-SA-HamedNeural`, +5% | `ar-SA-ZariyahNeural`, −5% |
+
+Audio is synthesized on the server (`SpeechService`, SSML with the card text escaped), cached per voice and text, and
+streamed to the browser, so the key never reaches the page.
 
 ### Configuration reference
 
@@ -252,6 +282,10 @@ shows the auth mode. `run-eval.cmd` runs the evaluation (several minutes; `run-e
 | `Agents:ScreenBudgetSeconds` | `40` | Minimum match seconds between two insight cards per viewer |
 | `Match:Scenario` / `Seed` / `Speed` | `press-flip` / `7` / `15` | Fixture, simulator seed and replay speed |
 | `Telemetry:ApplicationInsightsConnectionString` / `OtlpEndpoint` | – | Exporters (off when empty) |
+| `Speech:Enabled` | `true` | Azure AI Speech neural voices (browser voices when off or unavailable) |
+| `Speech:Key` | – | Speech key; empty reuses `Agents:Foundry:ApiKey` |
+| `Speech:Region` | – | Speech region; empty detects it from the Foundry resource |
+| `Speech:Endpoint` | – | Resource endpoint for region detection; empty derives it from the project endpoint |
 
 ---
 
@@ -305,13 +339,13 @@ All clubs and players are fictional. Pick one in the Studio header, with `Match:
 | Narratives, milestones and recaps | Narrator and Recap agents, pass streaks, distance milestones |
 | Explainability (control vs chaos, pressure, rhythm) | Control index, press-surge and momentum-swing facts, clickable provenance |
 | Data innovation | Seeded simulator, tactical profiles, five scripted fixtures, event and cue schemas |
-| Multi-language storytelling | Urdu, Spanish and Arabic; local commentary styles; right-to-left rendering; script check |
+| Multi-language storytelling | Urdu, Spanish and Arabic; local commentary styles; right-to-left rendering; script check; Azure AI Speech neural voices per language |
 
 | Judging criterion | Evidence |
 |---|---|
-| Technical implementation (Foundry) | Foundry models in two tiers through Agent Framework, a workflow graph, OpenTelemetry to Foundry Tracing, an evaluation harness, Entra ID and managed identity, 60 tests |
+| Technical implementation (Foundry) | Foundry models in two tiers through Agent Framework, a workflow graph, OpenTelemetry to Foundry Tracing, an evaluation harness, Azure AI Speech neural voices, Entra ID and managed identity, 71 tests |
 | Agentic design | Six agents with catalogued roles and contracts, Director-first routing, a Verifier loop with feedback, separation of duties, fallbacks |
-| Real-world impact | Trustworthy, explainable insights for broadcasters and second screens; accessibility (Audio Description); multilingual fans; spoiler-safe sync |
+| Real-world impact | Trustworthy, explainable insights for broadcasters and second screens; accessibility (Audio Description, read aloud by a neural voice); multilingual fans; spoiler-safe sync |
 | UX and presentation | A studio with two live viewers, an explained momentum chart, clickable evidence, catch-me-up and a live newsroom panel |
 | Category adherence | Every pipeline stage (ingest, interpret, explain, render, personalize) and every capability listed above |
 
@@ -319,7 +353,7 @@ All clubs and players are fictional. Pick one in the Studio header, with `Match:
 
 ## Tests
 
-60 tests (`dotnet test tests/WhyLine.Tests`), all offline and deterministic:
+71 tests (`dotnet test tests/WhyLine.Tests`), all offline and deterministic:
 
 - **Golden match:** the scripted storyline produces its goals, tactical shift and explained momentum swing; statistics
   are football-realistic; auto-eventing recall, precision and speed error stay within bounds.
@@ -330,6 +364,8 @@ All clubs and players are fictional. Pick one in the Studio header, with `Match:
 - **Agent catalog:** every model agent's system message follows the required structure and includes grounding and
   prompt-injection rules.
 - **Telemetry:** one moment produces one connected trace with a span per agent.
+- **Voices:** every language and persona gets a neural voice, card text cannot inject SSML, and Urdu keeps its script
+  and locale.
 
 ---
 
@@ -338,7 +374,7 @@ All clubs and players are fictional. Pick one in the Studio header, with `Match:
 Not needed to review the project, and not deployed by default. `azure.yaml` and `infra/` deploy WhyLine to **Azure
 Container Apps** with `azd up`, signing in to an existing Foundry project with a **managed identity** (no keys in the
 cloud) and connecting Application Insights to the project's Tracing view. Secrets never enter the container image
-(`.dockerignore`). See [docs/deploy-azure.md](docs/deploy-azure.md) or run `deploy-azure.cmd`.
+(`.dockerignore`). See [docs/deploy-azure.md](docs/deploy-azure.md).
 
 ---
 
@@ -346,12 +382,12 @@ cloud) and connecting Application Insights to the project's Tracing view. Secret
 
 ```
 src/WhyLine.Core             Domain, synthetic match simulator, fixtures, stats engine, auto-eventing detector
-src/WhyLine.Agents           Agent contracts and catalog, template agents, Director, Verifier, newsroom steps, telemetry
+src/WhyLine.Agents           Agent contracts and catalog, template agents, Director, Verifier, newsroom steps, telemetry, voices
 src/WhyLine.Agents.Foundry   Foundry agents (Microsoft Agent Framework), built from the agent catalog
 src/WhyLine.Agents.Workflows The newsroom as an Agent Framework workflow graph
-src/WhyLine.Web              Live match host, SignalR hub, REST API, Blazor studio UI, OpenTelemetry exporters
+src/WhyLine.Web              Live match host, SignalR hub, REST API, Blazor studio UI, OpenTelemetry exporters, Azure AI Speech
 tools/WhyLine.Evaluate       Evaluation harness (Foundry newsroom + Microsoft.Extensions.AI.Evaluation)
-tests/WhyLine.Tests          Golden-match, fixture, verifier, newsroom, workflow, catalog and telemetry tests
+tests/WhyLine.Tests          Golden-match, fixture, verifier, newsroom, workflow, catalog, telemetry and voice tests
 infra/                       Bicep for azd: Container Apps, registry, monitoring, Foundry role assignments
 eval/                        Latest evaluation results (summary.md, results.json)
 docs/                        Design docs and JSON schemas
@@ -372,7 +408,6 @@ docs/                        Design docs and JSON schemas
 - **Semantic verification.** The Verifier checks numbers, names and script, not meaning; the evaluation shows the
   remaining errors are of that kind (who leads, who scored). Next: a small model-based semantic check in the Verifier
   loop, measured with the same harness.
-- **Voices.** Speech uses the browser's voices; Azure AI Speech neural voices for Urdu, Arabic and Spanish are next.
 - **Synthetic only.** All matches, clubs and players are generated. The event schema is designed so a real feed could
   replace the simulator.
 - **Single instance.** The live match runs in memory, so the web app runs as one instance.

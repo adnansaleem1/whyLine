@@ -27,18 +27,6 @@ Templates: `azure.yaml`, `infra/main.bicep`, `infra/modules/app.bicep`, `infra/m
 
 ## Deploy
 
-Double-click **`deploy-azure.cmd`**. It:
-
-1. Signs you in to Azure (`azd auth login`) if needed.
-2. Creates the `whyline` azd environment. The first time, azd asks for a subscription and a region.
-3. Reads the Foundry project endpoint from your .NET user secrets (see the README). The API key there is not used and
-   never leaves your machine; `.dockerignore` also keeps local settings files out of the image.
-4. Asks once for the Foundry resource group.
-5. Runs `azd up`: provisions the resources, builds the image in the registry and deploys it. The URL is printed at the
-   end and saved to `logs/deploy-url.txt`.
-
-The same by hand:
-
 ```bash
 azd auth login
 azd env new whyline
@@ -48,6 +36,11 @@ azd env set FOUNDRY_REASONING_MODEL gpt-5.5        # optional, these are the def
 azd env set FOUNDRY_FAST_MODEL gpt-5.4-mini
 azd up
 ```
+
+The first `azd up` asks for a subscription and a region, then provisions the resources, builds the image in the
+registry and deploys it (about 10 minutes). The URL is printed at the end (`azd env get-value WHYLINE_URL`). No API key
+is used or uploaded: the app signs in with a managed identity, and `.dockerignore` keeps local settings files out of
+the image.
 
 After a code change, `azd deploy` ships a new image. `azd down --purge` deletes everything WhyLine created (the Foundry
 resource and its models are not touched, but the role assignments and the tracing connection on it should be removed by
@@ -63,8 +56,13 @@ hand if you want them gone).
 
 ## Entra ID locally
 
-`run-foundry-entra.cmd` runs the app on your machine the way the cloud does: Entra ID (your `azd`/`az` sign-in) instead
-of the API key. The deployment grants you the role it needs; role assignments can take a few minutes to apply.
+The **WhyLine (Foundry agents, Entra ID)** launch profile runs the app on your machine the way the cloud does: Entra ID
+(your `azd`/`az` sign-in) instead of the API key.
+
+```bash
+dotnet run --project src/WhyLine.Web --launch-profile "WhyLine (Foundry agents, Entra ID)"
+```
+ The deployment grants you the role it needs; role assignments can take a few minutes to apply.
 
 ## Cost
 

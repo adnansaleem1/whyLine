@@ -5,6 +5,7 @@ using WhyLine.Agents.Pipeline;
 using WhyLine.Agents.Template;
 using WhyLine.Web.Components;
 using WhyLine.Web.Live;
+using WhyLine.Web.Speech;
 #if WHYLINE_FOUNDRY
 using WhyLine.Agents.Foundry;
 using WhyLine.Agents.Workflows;
@@ -52,6 +53,11 @@ if (string.Equals(agentOptions.Mode, "Foundry", StringComparison.OrdinalIgnoreCa
 #endif
 }
 
+// ── Voices: Azure AI Speech neural voices (falls back to browser voices) ──
+builder.Services.AddSingleton(builder.Configuration.GetSection(SpeechOptions.Section).Get<SpeechOptions>() ?? new SpeechOptions());
+builder.Services.AddHttpClient("speech", c => c.Timeout = TimeSpan.FromSeconds(15));
+builder.Services.AddSingleton<SpeechService>();
+
 // ── Live match + newsroom ──
 builder.Services.AddSingleton<ViewerRegistry>();
 builder.Services.AddSingleton<IProfileSource>(sp => sp.GetRequiredService<ViewerRegistry>());
@@ -77,6 +83,8 @@ app.MapRazorComponents<App>().AddInteractiveServerRenderMode();
 app.MapHub<MatchHub>("/hubs/match");
 app.MapWhyLineApi();
 app.MapGet("/health", () => Results.Ok(new { status = "ok", agents = agentOptions.Mode }));
+
+_ = app.Services.GetRequiredService<SpeechService>().EnsureReadyAsync(); // resolves the Speech region in the background
 
 var auth = "n/a";
 #if WHYLINE_FOUNDRY

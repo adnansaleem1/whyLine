@@ -18,6 +18,16 @@
         "ASPNETCORE_ENVIRONMENT": "Development",
         "Agents__Mode": "Foundry"
       }
+    },
+    "WhyLine (Foundry agents, Entra ID)": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "applicationUrl": "http://localhost:5080",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "Agents__Mode": "Foundry",
+        "Agents__Foundry__Auth": "EntraId"
+      }
     }
   }
 }

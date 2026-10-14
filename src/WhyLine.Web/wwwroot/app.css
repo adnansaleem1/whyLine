@@ -220,6 +220,7 @@ select {
 .viewer-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 .toggle.on { border-color: var(--why); color: var(--why); }
 .hint { color: var(--muted); font-size: 0.8rem; }
+.hint.voice { color: var(--ok); }
 
 .feed { list-style: none; margin: 0; padding: 0; max-height: 260px; overflow: auto; display: flex; flex-direction: column; gap: 2px; }
 .feed .empty { color: var(--muted); font-size: 0.88rem; padding: 6px 0; }

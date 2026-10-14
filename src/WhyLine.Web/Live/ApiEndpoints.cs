@@ -16,8 +16,8 @@ public static class ApiEndpoints
     {
         var api = app.MapGroup("/api");
 
-        api.MapGet("/match", (LiveMatch live, INewsroom newsroom) =>
-            new { live.Metadata, Status = live.Status(), Snapshot = live.LatestSnapshot(), live.AgentMode, newsroom.Orchestration });
+        api.MapGet("/match", (LiveMatch live, INewsroom newsroom, Speech.SpeechService speech) =>
+            new { live.Metadata, Status = live.Status(), Snapshot = live.LatestSnapshot(), live.AgentMode, newsroom.Orchestration, Speech = speech.Status });
 
         api.MapGet("/matches", (LiveMatch live) => MatchCatalog.All.Select(s => new
         {

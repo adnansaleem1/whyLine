@@ -11,5 +11,4 @@ eval/store/
 eval/report.html
 .azure/
 **/secrets.json
-publish-github.cmd
 publish-commit-message.txt

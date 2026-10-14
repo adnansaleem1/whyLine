@@ -3,6 +3,7 @@
 @inject ViewerRegistry Viewers
 @inject INewsroom Newsroom
 @inject IJSRuntime JS
+@inject WhyLine.Web.Speech.SpeechService Speech
 
 <section class="viewer" style="--team-accent: @AccentColor" aria-label="@Name">
     <header class="viewer-head">
@@ -102,9 +103,14 @@
         <button type="button" class="primary" @onclick="CatchMeUp" disabled="@_catchingUp">
             @(_catchingUp ? "Writing your recap…" : "Catch me up")
         </button>
-        <button type="button" class="@(_speak ? "toggle on" : "toggle")" aria-pressed="@_speak" @onclick="ToggleSpeak">
+        <button type="button" class="@(_speak ? "toggle on" : "toggle")" aria-pressed="@_speak" @onclick="ToggleSpeak"
+                title="@Speech.Status">
             @(_speak ? "Speaking insights" : "Speak insights")
         </button>
+        @if (_speak)
+        {
+            <span class="hint voice">@_voiceLabel</span>
+        }
         @if (_profileChangedAt is not null)
         {
             <span class="hint">New settings apply from the next moment.</span>
@@ -163,6 +169,7 @@
     private DateTime _highlightUntil;
     private bool _speak;
     private string? _spokenId;
+    private string _voiceLabel = "";
     private bool _catchingUp;
     private DateTime? _profileChangedAt;
 
@@ -245,15 +252,45 @@
         }
     }
 
-    private async Task MaybeSpeak()
+    private Task MaybeSpeak()
     {
-        if (!_speak || _card is null || _card.Id == _spokenId) return;
+        if (!_speak || _card is null || _card.Id == _spokenId) return Task.CompletedTask;
         _spokenId = _card.Id;
+        _ = SpeakAsync(_card); // synthesis takes a moment; keep the render loop free
+        return Task.CompletedTask;
+    }
+
+    /// <summary>Azure AI Speech neural voice, streamed to the browser; browser voices if Speech is unavailable.</summary>
+    private async Task SpeakAsync(OverlayCue card)
+    {
+        var text = $"{card.Title}. {card.Body}";
+        var persona = card.ProfileKey is null ? _persona : WhyLine.Agents.Speech.SpeechVoices.PersonaOf(card.ProfileKey);
         try
         {
-            await JS.InvokeAsync<bool>("whyline.speak", $"{_card.Title}. {_card.Body}", _card.Language);
+            var audio = await Speech.SynthesizeAsync(text, card.Language, persona, CancellationToken.None);
+            await InvokeAsync(async () =>
+            {
+                if (!_speak || _spokenId != card.Id) return; // a newer card or the toggle won
+                if (audio is not null)
+                {
+                    using var stream = new MemoryStream(audio);
+                    using var streamRef = new DotNetStreamReference(stream);
+                    await JS.InvokeAsync<bool>("whyline.play", streamRef, text, card.Language);
+                    _voiceLabel = $"Azure AI Speech · {WhyLine.Agents.Speech.SpeechVoices.For(card.Language, persona).Name}";
+                }
+                else
+                {
+                    await JS.InvokeAsync<bool>("whyline.speak", text, card.Language);
+                    _voiceLabel = "Browser voice";
+                }
+
+                StateHasChanged();
+            });
         }
         catch (JSDisconnectedException)
+        {
+        }
+        catch (ObjectDisposedException)
         {
         }
     }
