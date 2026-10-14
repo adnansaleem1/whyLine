@@ -164,6 +164,8 @@
     private OverlayCue? _card;
     private OverlayCue? _catchUp;
     private string? _dismissed;
+    private readonly Dictionary<string, double> _onScreenFrom = [];
+    private string? _onScreenKey;
     private int _held;
     private IReadOnlyList<MatchEvent> _highlight = [];
     private DateTime _highlightUntil;
@@ -201,6 +203,8 @@
             _catchUp = null;
             _highlight = [];
             _spokenId = null;
+            _onScreenFrom.Clear();
+            _onScreenKey = null;
         }
 
         var live = Live.Clock;
@@ -216,7 +220,20 @@
         var visible = mine.Where(c => c.MatchSeconds <= _playback).ToArray();
         _feed = visible.Reverse().Take(30).ToArray();
 
-        var current = visible.LastOrDefault(c => _playback < c.MatchSeconds + c.DurationSeconds && c.Id != _dismissed);
+        // A card's time on screen starts when it reaches this viewer: at its moment, or later if the agents took longer
+        // than the viewer's delay (Foundry at high replay speeds). Cards already there on load or after a profile
+        // change count from their moment, so old cards don't pop up again.
+        var seeding = _onScreenKey != Profile.Key;
+        if (seeding)
+        {
+            _onScreenFrom.Clear();
+            _onScreenKey = Profile.Key;
+        }
+
+        foreach (var c in visible)
+            _onScreenFrom.TryAdd(c.Id, seeding ? c.MatchSeconds : Math.Max(c.MatchSeconds, _playback));
+
+        var current = visible.LastOrDefault(c => _playback < _onScreenFrom[c.Id] + c.DurationSeconds && c.Id != _dismissed);
         _card = _catchUp is not null && _catchUp.Id != _dismissed ? _catchUp : current;
 
         if (_highlight.Count > 0 && DateTime.UtcNow > _highlightUntil) _highlight = [];
