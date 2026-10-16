@@ -86,6 +86,7 @@ button, select, input { font: inherit; color: inherit; }
 
 .transport { display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap; }
 .transport .fixture select { max-width: 260px; font-weight: 600; }
+.transport .demo select { max-width: 230px; border-color: var(--why); color: var(--why); }
 
 button {
     background: var(--panel-2);

@@ -34,13 +34,23 @@
         <label>
             <span class="sr-only">Replay speed</span>
             <select value="@_status.Speed.ToString(CultureInfo.InvariantCulture)" @onchange="SetSpeed">
-                @foreach (var s in new[] { 1, 5, 10, 15, 20, 30, 45 })
+                @foreach (var s in new[] { 1, 2, DemoSpeed, 5, 10, 15, 20, 30, 45 })
                 {
                     <option value="@s">@(s)× speed</option>
                 }
             </select>
         </label>
         <button type="button" @onclick="Restart">Restart match</button>
+        <label class="demo" title="Demo mode: jump to just before a key moment and play at @(DemoSpeed)× so the agents keep up">
+            <span class="sr-only">Demo: jump to a key moment</span>
+            <select value="" @onchange="JumpTo" @key="_jumps">
+                <option value="">Demo: jump to…</option>
+                @foreach (var c in Live.Chapters)
+                {
+                    <option value="@c.MatchSeconds.ToString(CultureInfo.InvariantCulture)">@c.Label</option>
+                }
+            </select>
+        </label>
     </div>
 </header>
 
@@ -113,6 +123,20 @@
     {
         if (e.Value?.ToString() is not { Length: > 0 } id || id == Live.Scenario.Id) return;
         Live.Reset(Live.Seed, id);
+        Live.SetRunning(true);
+        Refresh();
+    }
+
+    /// <summary>Demo mode replay speed: slow enough for Foundry cards to arrive while the moment is still on screen.</summary>
+    private const int DemoSpeed = 4;
+    private int _jumps;
+
+    private void JumpTo(ChangeEventArgs e)
+    {
+        if (!double.TryParse(e.Value?.ToString(), NumberStyles.Float, CultureInfo.InvariantCulture, out var seconds)) return;
+        Live.JumpTo(seconds);
+        _jumps++; // re-creates the menu so it shows "Demo: jump to…" again
+        Live.SetSpeed(DemoSpeed);
         Live.SetRunning(true);
         Refresh();
     }

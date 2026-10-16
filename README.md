@@ -62,6 +62,9 @@ Open **http://localhost:5080**. The match kicks off automatically at 15× speed.
 7. **Speak insights** reads cards aloud with **Azure AI Speech** neural voices (for example `ur-PK-AsadNeural` for
    Urdu), the basis of the Audio Description persona. With no key configured (as in this quick start), the browser's voices are used.
 
+8. **Demo: jump to…** (top right) skips to just before any goal, big chance or tactical switch, or to full time, and
+   plays on at 4× so the Foundry agents keep up. The skipped stretch is still analysed (stats, momentum, recaps).
+
 Useful endpoints while it runs: `GET /api/agents` (every agent's role, contract and system message),
 `GET /api/traces`, `GET /api/match/moments`, `GET /api/autoeventing`.
 
@@ -312,11 +315,12 @@ All clubs and players are fictional. Pick one in the Studio header, with `Match:
 | `GET /api/matches` | Fixtures that can be loaded (no results, to avoid spoilers) |
 | `GET /api/match/events?since=<seconds>` | Event feed (schema: `docs/schemas/match-event.schema.json`) |
 | `GET /api/match/moments` | Detected moments with facts and evidence |
+| `GET /api/match/chapters` | Demo mode chapters: kick-off, each scripted goal, chance and tactical switch, full time |
 | `GET /api/cues?since=<index>&profileKey=<key>` | Overlay cues (schema: `docs/schemas/overlay-cue.schema.json`) |
 | `GET /api/traces` | Agent newsroom trace |
 | `GET /api/agents` | Every agent's definition and system message |
 | `GET /api/autoeventing` | Auto-eventing recall, precision and speed error |
-| `POST /api/control` | `{ "action": "play" \| "pause" \| "restart" \| "load", "scenario": "comeback", "speed": 15, "seed": 7 }` |
+| `POST /api/control` | `{ "action": "play" \| "pause" \| "restart" \| "load" \| "jump", "scenario": "comeback", "speed": 15, "seed": 7, "seconds": 3570 }` |
 | `POST /api/catchmeup` | `{ "profile": {...}, "playbackSeconds": 3600 }` |
 | SignalR `/hubs/match` | Server pushes `status`, `cue`, `trace`; clients call `RegisterProfile(profile)` |
 | `GET /health` | Liveness |
@@ -343,7 +347,7 @@ All clubs and players are fictional. Pick one in the Studio header, with `Match:
 
 | Judging criterion | Evidence |
 |---|---|
-| Technical implementation (Foundry) | Foundry models in two tiers through Agent Framework, a workflow graph, OpenTelemetry to Foundry Tracing, an evaluation harness, Azure AI Speech neural voices, Entra ID and managed identity, 71 tests |
+| Technical implementation (Foundry) | Foundry models in two tiers through Agent Framework, a workflow graph, OpenTelemetry to Foundry Tracing, an evaluation harness, Azure AI Speech neural voices, Entra ID and managed identity, 76 tests |
 | Agentic design | Six agents with catalogued roles and contracts, Director-first routing, a Verifier loop with feedback, separation of duties, fallbacks |
 | Real-world impact | Trustworthy, explainable insights for broadcasters and second screens; accessibility (Audio Description, read aloud by a neural voice); multilingual fans; spoiler-safe sync |
 | UX and presentation | A studio with two live viewers, an explained momentum chart, clickable evidence, catch-me-up and a live newsroom panel |
@@ -353,11 +357,12 @@ All clubs and players are fictional. Pick one in the Studio header, with `Match:
 
 ## Tests
 
-71 tests (`dotnet test tests/WhyLine.Tests`), all offline and deterministic:
+76 tests (`dotnet test tests/WhyLine.Tests`), all offline and deterministic:
 
 - **Golden match:** the scripted storyline produces its goals, tactical shift and explained momentum swing; statistics
   are football-realistic; auto-eventing recall, precision and speed error stay within bounds.
-- **Fixtures:** every fixture ends with its scripted score and publishes only verified cards in all four languages.
+- **Fixtures:** every fixture ends with its scripted score and publishes only verified cards in all four languages;
+  its demo chapters land just before each scripted goal.
 - **Verifier:** invented numbers, players outside the evidence, Urdu and Arabic digits, Roman-script Urdu.
 - **Newsroom and workflow:** retries with feedback, fallback when retries run out, per-viewer fan-out, catch-me-up
   never reveals later moments, and the Agent Framework graph end to end.

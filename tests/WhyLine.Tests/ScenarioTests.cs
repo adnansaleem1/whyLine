@@ -113,4 +113,21 @@ public sealed class ScenarioTests
         Assert.DoesNotContain(sink.Traces, t => t.Detail.StartsWith("Fallback issue"));
         Assert.Contains(sink.Cues, c => c.Type == CueType.Recap && c.MomentKind == MomentKind.FullTime);
     }
+
+    [Theory]
+    [MemberData(nameof(Scenarios))]
+    public void Demo_chapters_land_just_before_each_scripted_goal(string id)
+    {
+        var played = Play(id);
+        var chapters = DemoChapters.For(played.Script);
+
+        Assert.Equal(0, chapters[0].MatchSeconds);
+        Assert.Equal(DemoChapters.FullTimeSeconds, chapters[^1].MatchSeconds);
+        Assert.Equal(chapters.OrderBy(c => c.MatchSeconds).Select(c => c.Label), chapters.Select(c => c.Label));
+
+        var goals = chapters.Where(c => c.Label.Contains("' Goal")).ToArray();
+        Assert.Equal(played.Home + played.Away, goals.Length);
+        Assert.All(goals, c => Assert.Contains(played.Events,
+            e => e.Type == MatchEventType.Goal && e.MatchSeconds > c.MatchSeconds && e.MatchSeconds < c.MatchSeconds + 120));
+    }
 }

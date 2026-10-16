@@ -61,6 +61,7 @@ public sealed class LiveMatch : BackgroundService, INewsroomSink
     private int _cueCounter;
     private double _lastPassCueAt = -999;
     private double _nextSnapshotAt;
+    private double _publishFrom;
     private MatchSnapshot? _latest;
 
     public LiveMatch(IHubContext<MatchHub> hub, MatchSettings settings, AgentOptions agents, ILogger<LiveMatch> logger)
@@ -80,6 +81,9 @@ public sealed class LiveMatch : BackgroundService, INewsroomSink
     public MatchScenario Scenario { get; private set; } = MatchCatalog.All[0];
     public int Generation { get; private set; }
     public MatchMetadata Metadata { get; private set; } = null!;
+
+    /// <summary>Demo mode: the points of this fixture the Studio can jump to.</summary>
+    public IReadOnlyList<DemoChapter> Chapters { get; private set; } = [];
     public ChannelReader<QueuedMoment> MomentQueue => _moments.Reader;
 
     /// <summary>Raised (on a background thread) whenever a new cue is published.</summary>
@@ -97,6 +101,7 @@ public sealed class LiveMatch : BackgroundService, INewsroomSink
             Generation++;
             var script = Scenario.Build(seed);
             Metadata = script.Metadata;
+            Chapters = DemoChapters.For(script);
             _sim = new MatchSimulator(script);
             _analyzer = new MatchAnalyzer(script.Metadata);
             _detector = new TrackingEventDetector(script.Metadata);
@@ -107,7 +112,28 @@ public sealed class LiveMatch : BackgroundService, INewsroomSink
             _eventsById = [];
             _lastPassCueAt = -999;
             _nextSnapshotAt = 0;
+            _publishFrom = 0;
             _latest = _analyzer.Snapshot(0);
+        }
+    }
+
+    /// <summary>
+    /// Demo mode: moves the match to <paramref name="matchSeconds"/> (replaying from kick-off to go back). The skipped
+    /// stretch is simulated and analysed as usual (stats, momentum, moments for recaps), but its moments are not sent to
+    /// the agents, and cards still in progress from before the jump are dropped, so only fresh cards follow.
+    /// </summary>
+    public void JumpTo(double matchSeconds)
+    {
+        lock (_gate)
+        {
+            if (matchSeconds < _sim.Clock) Reset(Seed);
+            else Generation++; // drops queued moments from before the jump
+
+            var skipped = new List<OverlayCue>();
+            while (_sim.Clock < matchSeconds && StepLocked(skipped, queueMoments: false)) { }
+            _cues.AddRange(skipped);
+            _latest = _analyzer.Snapshot(_sim.Clock);
+            _publishFrom = _sim.Clock;
         }
     }
 
@@ -159,51 +185,58 @@ public sealed class LiveMatch : BackgroundService, INewsroomSink
         var outgoing = new List<OverlayCue>();
         lock (_gate)
         {
-            if (_sim.Finished)
-            {
-                Running = false;
-                return false;
-            }
-
-            var step = _sim.Step();
-            var frame = step.Frame;
-            _frames.Add(frame);
-            _detector.IngestFrame(frame);
-
-            foreach (var crossing in _analyzer.IngestFrame(frame))
-                outgoing.Add(FastCue(crossing));
-
-            var moments = new List<Moment>();
-            foreach (var e in step.Events)
-            {
-                _eventsById[e.Id] = e;
-                _detector.IngestTruth(e);
-                moments.AddRange(_analyzer.Ingest(e));
-                if (FastCue(e) is { } cue) outgoing.Add(cue);
-            }
-
-            moments.AddRange(_analyzer.Tick(frame.MatchSeconds));
-
-            if (frame.MatchSeconds >= _nextSnapshotAt || moments.Count > 0)
-            {
-                _latest = _analyzer.Snapshot(frame.MatchSeconds);
-                if (frame.MatchSeconds >= _nextSnapshotAt)
-                {
-                    _snapshots.Add(_latest);
-                    _nextSnapshotAt += SnapshotEvery;
-                }
-            }
-
-            foreach (var m in moments)
-            {
-                var evidence = m.EvidenceEventIds.Select(id => _eventsById.GetValueOrDefault(id)).OfType<MatchEvent>().ToArray();
-                _moments.Writer.TryWrite(new QueuedMoment(Generation, new MomentContext(m, _latest!, Metadata, evidence), frame.MatchSeconds));
-            }
-
+            if (!StepLocked(outgoing, queueMoments: true)) return false;
             _cues.AddRange(outgoing);
         }
 
         foreach (var cue in outgoing) Announce(cue);
+        return true;
+    }
+
+    /// <summary>One simulation step. Call under the lock; fast-path cues go to <paramref name="outgoing"/>.</summary>
+    private bool StepLocked(List<OverlayCue> outgoing, bool queueMoments)
+    {
+        if (_sim.Finished)
+        {
+            Running = false;
+            return false;
+        }
+
+        var step = _sim.Step();
+        var frame = step.Frame;
+        _frames.Add(frame);
+        _detector.IngestFrame(frame);
+
+        foreach (var crossing in _analyzer.IngestFrame(frame))
+            outgoing.Add(FastCue(crossing));
+
+        var moments = new List<Moment>();
+        foreach (var e in step.Events)
+        {
+            _eventsById[e.Id] = e;
+            _detector.IngestTruth(e);
+            moments.AddRange(_analyzer.Ingest(e));
+            if (FastCue(e) is { } cue) outgoing.Add(cue);
+        }
+
+        moments.AddRange(_analyzer.Tick(frame.MatchSeconds));
+
+        if (frame.MatchSeconds >= _nextSnapshotAt || moments.Count > 0)
+        {
+            _latest = _analyzer.Snapshot(frame.MatchSeconds);
+            if (frame.MatchSeconds >= _nextSnapshotAt)
+            {
+                _snapshots.Add(_latest);
+                _nextSnapshotAt += SnapshotEvery;
+            }
+        }
+
+        foreach (var m in queueMoments ? moments : [])
+        {
+            var evidence = m.EvidenceEventIds.Select(id => _eventsById.GetValueOrDefault(id)).OfType<MatchEvent>().ToArray();
+            _moments.Writer.TryWrite(new QueuedMoment(Generation, new MomentContext(m, _latest!, Metadata, evidence), frame.MatchSeconds));
+        }
+
         return true;
     }
 
@@ -275,7 +308,12 @@ public sealed class LiveMatch : BackgroundService, INewsroomSink
 
     public void Publish(OverlayCue cue)
     {
-        lock (_gate) _cues.Add(cue);
+        lock (_gate)
+        {
+            if (cue.MatchSeconds < _publishFrom) return; // written for a stretch the demo jumped over
+            _cues.Add(cue);
+        }
+
         Announce(cue);
     }
 

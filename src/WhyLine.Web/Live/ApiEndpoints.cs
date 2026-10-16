@@ -5,7 +5,7 @@ using WhyLine.Core.Simulation;
 
 namespace WhyLine.Web.Live;
 
-public sealed record ControlRequest(string Action, double? Speed, int? Seed, string? Scenario = null);
+public sealed record ControlRequest(string Action, double? Speed, int? Seed, string? Scenario = null, double? Seconds = null);
 
 public sealed record CatchMeUpRequest(ViewerProfile Profile, double PlaybackSeconds);
 
@@ -25,6 +25,8 @@ public static class ApiEndpoints
         }));
 
         api.MapGet("/match/events", (LiveMatch live, double? since) => live.EventsSince(since ?? 0));
+
+        api.MapGet("/match/chapters", (LiveMatch live) => live.Chapters);
 
         api.MapGet("/match/moments", (LiveMatch live) => live.MomentsUpTo(live.Clock));
 
@@ -56,7 +58,12 @@ public static class ApiEndpoints
                     live.Reset(request.Seed ?? live.Seed, request.Scenario);
                     live.SetRunning(true);
                     break;
-                default: return Results.BadRequest($"Unknown action '{request.Action}'. Use play, pause, restart or load.");
+                case "jump":
+                    if (request.Seconds is not { } at || at < 0) return Results.BadRequest("jump needs seconds (see GET /api/match/chapters).");
+                    live.JumpTo(at);
+                    live.SetRunning(true);
+                    break;
+                default: return Results.BadRequest($"Unknown action '{request.Action}'. Use play, pause, restart, load or jump.");
             }
 
             if (request.Speed is { } s) live.SetSpeed(s);
